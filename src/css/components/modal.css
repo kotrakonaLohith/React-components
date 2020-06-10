@@ -1,0 +1,27 @@
+[data-reach-dialog-overlay] {
+  @apply fixed;
+  @apply pin;
+  @apply overflow-auto;
+  @apply bg-opaque-white;
+  @apply flex;
+}
+
+[data-reach-dialog-content] {
+  @apply bg-white;
+  @apply relative;
+  @apply m-auto;
+  @apply min-w-full;
+  @apply p-20;
+  @apply py-100;
+  @apply h-full;
+}
+
+@screen md {
+  [data-reach-dialog-content] {
+    @apply min-w-0;
+    @apply h-auto;
+    @apply border;
+    @apply py-100;
+    @apply px-90;
+  }
+}

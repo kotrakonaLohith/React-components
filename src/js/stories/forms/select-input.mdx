@@ -1,0 +1,236 @@
+import { SelectInput } from '../index'
+import TOC from '../_toc'
+import options from './_options'
+
+# Select Input
+
+SelectInput components require `id`, `label`, and `name` props. SelectInput components should be used as uncontrolled form components. For fully controlled forms see the `Form` and `FormField` components.
+
+<TOC
+  items={[
+    'Basic Select',
+    'Required Select',
+    'Active Select',
+    'Disabled Select',
+    'Displaying Help Text',
+    'Displaying Errors',
+    'Add Tooltip'
+  ]}
+/>
+
+## Basic Select
+
+The SelectInput component doesn't provide any spacing, spacing should be added with tailwind classes (`mb-20` in this example.)
+
+<SelectInput className="mb-20" id="select" label="Select Input" name="select">
+  {options()}
+</SelectInput>
+
+```tsx
+<SelectInput className="mb-20" id="select" label="Select Input" name="select">
+  // options here
+</SelectInput>
+```
+
+## Required Select
+
+To mark as required add the `required` prop. For an abbreviated "Required" marker set `required="*"`
+
+<SelectInput
+  className="mb-20"
+  id="required_select"
+  label="Required Select"
+  name="required_select"
+  required
+>
+  {options()}
+</SelectInput>
+
+<SelectInput
+  className="mb-20"
+  id="req_select"
+  label="Req Select"
+  name="req_select"
+  required="*"
+>
+  {options()}
+</SelectInput>
+
+```tsx
+<SelectInput
+  className="mb-20"
+  id="required_select"
+  label="Required Select"
+  name="required_select"
+  required
+>
+  <option value="">--Select--</option>
+  <option value="dog">Dog</option>
+  <option value="cat">Cat</option>
+  <option value="hamster">Hamster</option>
+  <option value="parrot">Parrot</option>
+  <option value="spider">Spider</option>
+  <option value="goldfish">Goldfish</option>
+</SelectInput>
+
+<SelectInput
+  className="mb-20"
+  id="req_select"
+  label="Req Select"
+  name="req_select"
+  required="*"
+>
+  <option value="">--Select--</option>
+  <option value="dog">Dog</option>
+  <option value="cat">Cat</option>
+  <option value="hamster">Hamster</option>
+  <option value="parrot">Parrot</option>
+  <option value="spider">Spider</option>
+  <option value="goldfish">Goldfish</option>
+</SelectInput>
+```
+
+## Active Select
+
+To mark a SelectInput as active add the `active` prop. For `active` styles to take effect the `reset` prop must be set to a function that performs some action (like setting value back to '' or to the initial value) usually in a component with state.
+
+<SelectInput
+  className="mb-20"
+  active
+  reset={() => {
+    return
+  }}
+  id="active_select"
+  label="Active Select Input (w/ reset)"
+  name="active_select"
+>
+  {options()}
+</SelectInput>
+
+```tsx
+<SelectInput
+  className="mb-20"
+  active
+  reset={() => {
+    return
+  }}
+  id="active_select"
+  label="Active Select Input (w/ reset)"
+  name="active_select"
+>
+  // options here
+</SelectInput>
+```
+
+## Disabled Select
+
+To disabled a SelectInput add the `disabled` props.
+
+<SelectInput
+  className="mb-20"
+  disabled
+  id="disabled_select"
+  label="Disabled Select Input"
+  name="disabled_select"
+>
+  {options()}
+</SelectInput>
+
+```tsx
+<SelectInput
+  className="mb-20"
+  disabled
+  id="disabled_select"
+  label="Disabled Select Input"
+  name="disabled_select"
+>
+  // options here
+</SelectInput>
+```
+
+## Displaying Help Text
+
+To add help text below the Input set the `helpText` prop to a string.
+
+<SelectInput
+  className="mb-20"
+  id="select"
+  label="Select Input"
+  name="select"
+  helpText="This SelectInput has help text"
+>
+  {options()}
+</SelectInput>
+
+```tsx
+<SelectInput
+  className="mb-20"
+  id="select"
+  label="Select Input"
+  name="select"
+  helpText="This SelectInput has help text"
+>
+  // options here
+</SelectInput>
+```
+
+## Displaying Errors
+
+To add error styles add the `error` prop. To add an error message below the Input set the `errorText` prop to a string.
+
+<SelectInput
+  className="mb-20"
+  error
+  errorText="This SelectInput has error text"
+  id="error_select"
+  label="Error Select Input"
+  name="error_select"
+>
+  {options()}
+</SelectInput>
+
+```tsx
+<SelectInput
+  className="mb-20"
+  error
+  errorText="This SelectInput has error text"
+  id="error_select"
+  label="Error Select Input"
+  name="error_select"
+>
+  // options here
+</SelectInput>
+```
+
+## Add Tooltip
+
+To add an information tooltip pass a `ReactChild` (in this example a React Fragment is passed) to the `tooltip` prop.
+
+<SelectInput
+  className="mb-20"
+  id="tooltip_select"
+  label="Tooltip Select Input"
+  name="tooltip_select"
+  tooltip={
+    <>
+      If you have any questions <a href="#">contact us</a>
+    </>
+  }
+>
+  {options()}
+</SelectInput>
+
+```tsx
+<SelectInput
+  id="tooltip_select"
+  label="Tooltip Select Input"
+  name="tooltip_select"
+  tooltip={
+    <>
+      If you have any questions <a href="#">contact us</a>
+    </>
+  }
+>
+  // options here
+</SelectInput>
+```

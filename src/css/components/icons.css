@@ -1,0 +1,42 @@
+.icon-add {
+  @apply bg-bright-blue-100;
+  @apply p-6;
+  @apply relative;
+  @apply rounded-full border-3 border-bright-blue-500;
+
+  & span {
+    @apply sr-only;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    @apply absolute;
+    @apply bg-bright-blue-500;
+    @apply pos-center;
+  }
+
+  &::before {
+    width: 4px;
+    height: 16px;
+  }
+
+  &::after {
+    height: 4px;
+    width: 16px;
+  }
+
+  @nest
+  .group:hover &,
+  .group:focus &,
+  &:hover,
+  &:focus {
+    @apply bg-bright-blue-500;
+    @apply cursor-pointer;
+
+    &::after,
+    &::before {
+      @apply bg-white;
+    }
+  }
+}

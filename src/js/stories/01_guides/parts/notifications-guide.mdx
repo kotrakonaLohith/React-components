@@ -1,0 +1,88 @@
+import { Notification } from '../../index'
+import { Do, Dont, DosDonts } from '../utils/doc-parts'
+
+## Overview
+
+Notification banners display important, succinct messages to inform users about events in the application.
+
+---
+
+## Usage
+
+### Types:
+
+#### Error Notification
+
+<Notification
+  onClose={() => {
+    alert('handle closing')
+  }}
+  error
+  className="mb-20"
+>
+  <p>
+    1 required item missing <a href="#">Link</a>
+  </p>
+</Notification>
+
+Use to indicate that an error has occurred and that a user needs to take action to address the issue before proceeding. Users can’t dismiss error notifications.
+
+#### Success Notification
+
+<Notification
+  onClose={() => {
+    alert('handle closing')
+  }}
+  success
+  className="mb-20"
+>
+  <p>
+    Success! Deepika Venkatesh has been added as a member of your club.{' '}
+    <a href="#">Add another member</a>
+  </p>
+</Notification>
+
+Use to indicate that a process has been completed successfully. Users can dismiss success notifications.
+
+#### Neutral Notifcation
+
+<Notification
+  onClose={() => {
+    alert('handle closing')
+  }}
+  className="mb-20"
+>
+  <p>
+    This is a neutral message. <a href="#">Link</a>
+  </p>
+</Notification>
+
+Use to provide additional guidance on how to proceed. Users can dismiss neutral notifications.
+
+---
+
+## Best Practices
+
+### General
+
+<DosDonts>
+  <Do>display notifications at the top of the page, below the navigation bar.</Do>
+  <Do>use the appropriate notification type for the type of message that’s being displayed.</Do>
+  <Dont>position notifications over existing page elements.</Dont>
+  <Dont>display more than 1 notification at a time.</Dont>
+</DosDonts>
+
+### Content
+
+<DosDonts>
+  <Do>use copy that can be contained to X characters.</Do>
+  <Do>use copy that instructs how to resolve error states.</Do>
+  <Dont>use more than 2 text links in the notification copy.</Dont>
+</DosDonts>
+
+### Behavior
+
+<DosDonts>
+  <Do>allow users to dismiss success and neutral notifications.</Do>
+  <Dont>allow users to dismiss error notifications.</Dont>
+</DosDonts>

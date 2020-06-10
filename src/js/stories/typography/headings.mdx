@@ -1,0 +1,57 @@
+import LeftIcon from '../../../img/icons/arrows/left.svg'
+
+# Headings
+
+## Regular Headings
+
+Headings styles are applied with the class `heading` and a modifier (eg. `-primary`, `-secondary`, etc) or utlity classes (eg. `text-base`, `text-sm`, etc.) Spacing should always be applied with utility classes (eg. `mb-32` in this example.)
+
+<div>
+  <h1 className="heading-primary mb-32">H1 - Open Sans Light, 66</h1>
+  <h2 className="heading-secondary mb-32">H2 - Open Sans Regular, 36</h2>
+  <h3 className="heading-tertiary mb-32">H3 - Open Sans Regular, 20</h3>
+  <h4 className="heading text-base mb-32">H4 - Open Sans Bold, 16</h4>
+  <h5 className="heading text-xs mb-32">H5 - Open Sans Bold, 14</h5>
+  <h4 className="heading-alt text-sm mb-32">H4 Alt - Open Sans Bold - All Caps - Spaced, 15</h4>
+  <h5 className="heading-alt text-2xs mb-32">H5 Alt - Open Sans Bold - All Caps - Spaced, 13</h5>
+</div>
+
+```tsx
+<h1 className="heading-primary">H1 - Open Sans Light, 66</h1>
+<h2 className="heading-secondary">H2 - Open Sans Regular, 36</h2>
+<h3 className="heading-tertiary">H3 - Open Sans Regular, 20</h3>
+<h4 className="heading text-base">H4 - Open Sans Bold, 16</h4>
+<h5 className="heading text-xs">H5 - Open Sans Bold, 14</h5>
+<h4 className="heading-alt text-sm">H4 Alt - Open Sans Bold - All Caps - Spaced, 15</h4>
+<h5 className="heading-alt text-2xs">H5 Alt - Open Sans Bold - All Caps - Spaced, 13</h5>
+```
+
+## Headings with topper
+
+Headings with toppers combine the headings above with either a step counter topper or a back link topper.
+
+<div className="mb-32">
+  <span className="heading-topper">Step 1 of 2</span>
+  <h1 className="heading-primary">Delhi South Metropolitan</h1>
+</div>
+<div className="mb-32">
+  <a href="#" className="heading-topper">
+    <LeftIcon aria-hidden="true" /> Members
+  </a>
+  <h1 className="heading-primary">Delhi South Metropolitan</h1>
+</div>
+
+```tsx
+import LeftIcon from 'path/to/left.svg'
+
+<div className="mb-32">
+  <span className="heading-topper">Step 1 of 2</span>
+  <h1 className="heading-primary">Delhi South Metropolitan</h1>
+</div>
+<div className="mb-32">
+  <a href="#" className="heading-topper">
+    <LeftIcon aria-hidden="true" /> Members
+  </a>
+  <h1 className="heading-primary">Delhi South Metropolitan</h1>
+</div>
+```

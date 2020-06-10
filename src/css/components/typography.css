@@ -1,0 +1,49 @@
+.heading {
+  @apply leading-tight;
+}
+
+@variants responsive {
+  .heading-primary {
+    @apply leading-tight;
+    @apply text-3xl font-light;
+  }
+
+  .heading-secondary {
+    @apply leading-tight;
+    @apply text-2xl font-light;
+  }
+
+  .heading-tertiary {
+    @apply leading-tight;
+    @apply text-xl font-normal;
+  }
+
+  .heading-alt {
+    @apply leading-tight;
+    @apply tracking-loose uppercase;
+  }
+}
+
+.heading-topper {
+  @apply block;
+  @apply font-bold;
+  @apply leading-tight;
+  @apply text-xs;
+}
+
+a.heading-topper {
+  @apply flex;
+  @apply items-center;
+  @apply no-underline;
+  @apply text-dark-blue-400;
+
+  & svg {
+    @apply mr-4;
+    @apply rect-icon-xxs;
+  }
+
+  &:hover,
+  &:focus {
+    @apply text-bright-blue-600;
+  }
+}

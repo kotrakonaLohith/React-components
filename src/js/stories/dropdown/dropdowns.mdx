@@ -1,0 +1,81 @@
+import { Dropdown, DropdownItem, DropdownList, DropdownButton } from '../index'
+import DownIcon from '../../../img/icons/arrows/down.svg'
+import UserIcon from '../../../img/icons/circles/user.svg'
+
+# Dropdowns
+
+@TODO: documentation
+
+## Basic Dropdown
+
+@TODO: documentation
+
+<div className="bg-dark-blue-500 p-40">
+  <Dropdown>
+    <DropdownButton className="text-white">
+      English{' '}
+      <DownIcon aria-hidden="true" className="text-white rect-icon-3xs ml-4" />
+    </DropdownButton>
+    <DropdownList>
+      <DropdownItem
+        onSelect={() => {
+          console.log('French') /* tslint:disable-line:no-console */
+        }}
+      >
+        French
+      </DropdownItem>
+      <DropdownItem
+        onSelect={() => {
+          console.log('German') /* tslint:disable-line:no-console */
+        }}
+      >
+        German
+      </DropdownItem>
+      <DropdownItem
+        onSelect={() => {
+          console.log('Chinese') /* tslint:disable-line:no-console */
+        }}
+      >
+        Chinese
+      </DropdownItem>
+      <DropdownItem isLink href="#">
+        Dropdown Link
+      </DropdownItem>
+    </DropdownList>
+  </Dropdown>
+</div>
+
+```tsx
+<Dropdown>
+  <DropdownButton className="text-white">
+    English{' '}
+    <DownIcon aria-hidden="true" className="text-white rect-icon-3xs ml-4" />
+  </DropdownButton>
+  <DropdownList>
+    <DropdownItem
+      onSelect={() => {
+        console.log('French') /* tslint:disable-line:no-console */
+      }}
+    >
+      French
+    </DropdownItem>
+    <DropdownItem
+      onSelect={() => {
+        console.log('German') /* tslint:disable-line:no-console */
+      }}
+    >
+      German
+    </DropdownItem>
+    <DropdownItem
+      onSelect={() => {
+        console.log('Chinese') /* tslint:disable-line:no-console */
+      }}
+    >
+      Chinese
+    </DropdownItem>
+    <DropdownItem isLink href="#">
+      Dropdown Link
+    </DropdownItem>
+  </DropdownList>
+</Dropdown>
+```

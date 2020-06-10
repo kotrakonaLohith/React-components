@@ -1,0 +1,297 @@
+import { Input } from '../index'
+import TOC from '../_toc'
+import SearchIcon from '../../../img/icons/ui/search.svg'
+
+# Input
+
+Input components require `id`, `label`, and `name` props. Inputs should be used as uncontrolled form components. For fully controlled forms see the `Form` and `FormField` components.
+
+<TOC
+  items={[
+    'Basic Text Input',
+    'Change Input Type',
+    'Input with icon',
+    'Required Input',
+    'Active Resetable Input',
+    'Disabled Input',
+    'Displaying help text',
+    'Displaying errors',
+    'Add Tooltip'
+  ]}
+/>
+
+## Basic Text Input
+
+By default Inputs are of type `text`. The Input component doesn't provide any spacing, spacing should be added with tailwind classes (`mb-20` in this example.) Placeholder text can be added the same way as on any text input element.
+
+<Input
+  className="mb-20"
+  id="input"
+  label="Input"
+  name="input"
+  placeholder="placeholder text"
+/>
+
+```tsx
+<Input
+  className="mb-20"
+  id="input"
+  label="Input"
+  name="input"
+  placeholder="placeholder text"
+/>
+```
+
+## Change Input Type
+
+To change the type of an Input add a `type` prop. Possible types: `text` (default), `date`, `password`, `number`, `email`, `tel`.
+
+<Input
+  className="mb-20"
+  id="password"
+  label="Password"
+  name="password"
+  placeholder="Enter your password"
+  type="password"
+/>
+
+```tsx
+<Input
+  className="mb-20"
+  id="password"
+  label="Password"
+  name="password"
+  type="password"
+/>
+```
+
+## Input with icon
+
+To add an icon pass an svg to the `icon` prop. Add the `hideLabel` prop to hide the label (note: the label prop is still required for screen readers.) Add `isRounded` to round the corners.
+
+> **note:** svg's are automatically transformed to React Components by [babel-plugin-inline-react-svg](https://github.com/airbnb/babel-plugin-inline-react-svg) so svg's **must** be passed as a component
+
+<Input
+  className="mb-20"
+  hideLabel
+  icon={<SearchIcon />}
+  id="search"
+  isRounded
+  label="Search"
+  name="search"
+  placeholder="Search"
+/>
+
+```tsx
+import SearchIcon from 'path/to/search.svg'
+
+<Input
+  className="mb-20"
+  hideLabel
+  icon={<SearchIcon />}
+  id="search"
+  isRounded
+  label="Search"
+  name="search"
+  placeholder="Search"
+/>
+```
+
+## Required Input
+
+To mark as required add the `required` prop. For an abbreviated "Required" marker set `required="*"`
+
+<Input
+  className="mb-20"
+  id="required_input"
+  label="Required Input"
+  name="required_input"
+  placeholder="placeholder text"
+  required
+/>
+
+<Input
+  className="mb-20"
+  id="req_input"
+  label="Req Input"
+  name="req_input"
+  placeholder="placeholder text"
+  required="*"
+/>
+
+```tsx
+<Input
+  className="mb-20"
+  id="required_input"
+  label="Required Input"
+  name="required_input"
+  placeholder="placeholder text"
+  required
+/>
+
+<Input
+  className="mb-20"
+  id="req_input"
+  label="Req Input"
+  name="req_input"
+  placeholder="placeholder text"
+  required="*"
+/>
+```
+
+## Active Resetable Input
+
+To mark an Input as active add the `active` prop. For `active` styles to take effect the `reset` prop must be set to a function that performs some action (like setting value back to '' or to the initial value) usually in a component with state.
+
+<Input
+  className="mb-20"
+  active
+  reset={() => {
+    return
+  }}
+  id="active_input"
+  label="Active Input (w/ reset)"
+  name="active_input"
+  placeholder="placeholder text"
+/>
+
+```tsx
+<Input
+  className="mb-20"
+  active
+  reset={() => {
+    return
+  }}
+  id="active_input"
+  label="Active Input (w/ reset)"
+  name="active_input"
+  placeholder="placeholder text"
+/>
+```
+
+## Disabled Input
+
+To disable an Input add the `disabled` prop. For the alternative display add the `disabledAlt` prop.
+
+<Input
+  className="mb-20"
+  disabled
+  id="disabled_input"
+  name="disabled_input"
+  label="Disabled Input"
+  placeholder="disabled text"
+  value="Filled in disabled text"
+/>
+
+<Input
+  className="mb-20"
+  disabled
+  disabledAlt
+  id="disabled_input_alt"
+  name="disabled_input_alt"
+  label="Disabled Input Alt"
+  placeholder="disabled text alt"
+  value="Filled in disabled text alt"
+/>
+
+```tsx
+<Input
+  disabled
+  id="disabled_input"
+  name="disabled_input"
+  label="Disabled Input"
+  placeholder="disabled text"
+  value="Filled in disabled text"
+/>
+
+<Input
+  disabled
+  disabledAlt
+  id="disabled_input_alt"
+  name="disabled_input_alt"
+  label="Disabled Input Alt"
+  placeholder="disabled text alt"
+  value="Filled in disabled text alt"
+/>
+```
+
+## Displaying help text
+
+To add help text below the Input set the `helpText` prop to a string.
+
+<Input
+  className="mb-20"
+  id="help_input"
+  label="Help Input"
+  name="help_input"
+  placeholder="placeholder text"
+  helpText="This Input has help text"
+/>
+
+```tsx
+<Input
+  className="mb-20"
+  id="help_input"
+  label="Help Input"
+  name="help_input"
+  placeholder="placeholder text"
+  helpText="This Input has help text"
+/>
+```
+
+## Displaying errors
+
+To add error styles add the `error` prop. To add an error message below the Input set the `errorText` prop to a string.
+
+<Input
+  className="mb-20"
+  error
+  errorText="This Input has error text"
+  id="error_input"
+  label="Error Input"
+  name="error_input"
+  placeholder="placeholder text"
+/>
+
+```tsx
+<Input
+  className="mb-20"
+  error
+  errorText="This Input has error text"
+  id="error_input"
+  label="Error Input"
+  name="error_input"
+  placeholder="placeholder text"
+/>
+```
+
+## Add Tooltip
+
+To add an information tooltip pass a `ReactChild` (in this example a React Fragment is passed) to the `tooltip` prop.
+
+<Input
+  className="mb-20"
+  id="tooltip_input"
+  label="Tooltip Input"
+  name="tooltip_input"
+  placeholder="placeholder text"
+  tooltip={
+    <>
+      If you have any questions <a href="#">contact us</a>
+    </>
+  }
+/>
+
+```tsx
+<Input
+  id="tooltip_input"
+  label="Tooltip Input"
+  name="tooltip_input"
+  placeholder="placeholder text"
+  tooltip={
+    <>
+      If you have any questions <a href="#">contact us</a>
+    </>
+  }
+/>
+```

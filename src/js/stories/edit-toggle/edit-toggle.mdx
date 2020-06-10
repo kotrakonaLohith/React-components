@@ -1,0 +1,36 @@
+import { EditToggle, EditToggleContent, EditToggleForm } from '../index'
+import TOC from '../_toc'
+
+# Edit Toggle (NOT CURRENTLY USED)
+
+**DEPRECATED:** member profiles used to be edited inline. They no longer are. Keeping this component in case this functionality is needed in the future.
+
+<TOC
+  items={[
+    'Basic Usage',
+  ]}
+/>
+
+## Basic Usage
+
+Use for sections of content that can be edited inline (eg. ~~Member Profiles.~~)
+
+<EditToggle className="mb-32">
+  <EditToggleContent>
+    Content that can be editted here
+  </EditToggleContent>
+  <EditToggleForm>
+    Form to edit content goes here
+  </EditToggleForm>
+</EditToggle>
+
+```tsx
+<EditToggle>
+  <EditToggleContent>
+    Content that can be editted here
+  </EditToggleContent>
+  <EditToggleForm>
+    Form to edit content goes here
+  </EditToggleForm>
+</EditToggle>
+```

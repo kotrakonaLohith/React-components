@@ -1,0 +1,15 @@
+.divider {
+  @apply border-b;
+
+  &.-light {
+    @apply border-gray-200
+  }
+
+  &.-thick {
+    @apply border-b-3
+  }
+
+  &.-dotted {
+    @apply border-dotted
+  }
+}

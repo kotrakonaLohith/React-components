@@ -1,0 +1,176 @@
+import { Form, FormField } from '../../index'
+import { Do, Dont, DosDonts } from '../utils/doc-parts'
+
+## Overview
+
+Form fields allow users to complete tasks that involve entering text and selecting options.
+
+---
+
+## Usage
+
+### Text input
+
+Use when users need to interact with and input text.
+
+<Form className="mb-32">
+  <FormField type="text" placeholder="Text Input" label="Text Input" />
+</Form>
+
+### Select
+
+Use when there is a list of options that do not need to be exposed and the user may select only one option.
+
+<Form className="mb-32">
+  <FormField
+    className="mb-20"
+    label="Select Field"
+    name="select_field"
+    type="select"
+  >
+    <option value="">--Select--</option>
+    <option value="dog">Dog</option>
+    <option value="cat">Cat</option>
+    <option value="hamster">Hamster</option>
+    <option value="parrot">Parrot</option>
+    <option value="spider">Spider</option>
+    <option value="goldfish">Goldfish</option>
+  </FormField>
+</Form>
+
+### Radio button
+
+Use when there is a list of options that need to be exposed and the user may select only one option.
+
+<Form className="mb-32">
+  <FormField
+    className="mb-20"
+    id="radio_sample_1"
+    label="Radio Field"
+    name="radio_field"
+    type="radio"
+    value="value 1"
+  />
+  <FormField
+    className="mb-20"
+    id="radio_sample_2"
+    label="Radio Field 2"
+    name="radio_field"
+    type="radio"
+    value="value 2"
+  />
+</Form>
+
+### Checkbox
+
+Use when there is a list of options and the user may select multiple options.
+
+<Form className="mb-32">
+  <FormField
+    className="mb-20"
+    label="Option One"
+    name="checkbox_field[1]"
+    type="checkbox"
+  />
+  <FormField
+    className="mb-20"
+    label="Option Two"
+    name="checkbox_field[2]"
+    type="checkbox"
+  />
+  <FormField
+    className="mb-20"
+    label="Option Three"
+    name="checkbox_field[3]"
+    type="checkbox"
+  />
+</Form>
+
+---
+
+## Best Practices
+
+### Labels
+
+<DosDonts>
+  <Do>use clear and concise labels for fields</Do>
+  <Do>use labels that convey the selection the user is making</Do>
+  <Do>position labels above the form field</Do>
+</DosDonts>
+
+### Options
+
+<DosDonts>
+  <Do>list options in a logical order</Do>
+  <Do>use clear and concise copy for options</Do>
+  <Do>present distinct options</Do>
+</DosDonts>
+
+### Required fields
+
+<DosDonts>
+  <Do>
+    include a visual indicator (*Required) after the label on required fields
+  </Do>
+  <Do>
+    use in-line validation to flag required fields that have not been completed
+  </Do>
+  <Do>
+    use in-line validation to flag required fields that have an issue when
+    possible
+  </Do>
+</DosDonts>
+
+### Help text
+
+<DosDonts>
+  <Do>
+    use help text when additional instruction is needed in order to complete the
+    field (for example, “This field accepts non-Latin characters”)
+  </Do>
+  <Do>display help text underneath the field</Do>
+  <Do>use help text sparingly</Do>
+</DosDonts>
+
+### Placeholder text
+
+<DosDonts>
+  <Do>
+    use placeholder text when additional context is needed (for example, “Second
+    line optional”)
+  </Do>
+  <Do>display placeholder directly in the field</Do>
+  <Do>use a placeholder for Select fields</Do>
+  <Do>use placeholder text sparingly</Do>
+</DosDonts>
+
+### Text input
+
+<DosDonts>
+  <Do>
+    use for common text inputs like names or descriptions; numbers, like phone
+    numbers or numeric amounts; mixed format, like home addresses and email
+    addresses
+  </Do>
+  <Do>trigger the text cursor to appear when a user clicks into a field </Do>
+</DosDonts>
+
+### Select
+
+<DosDonts>
+  <Dont>use for fewer than 5 options</Dont>
+</DosDonts>
+
+### Radio buttons
+
+<DosDonts>
+  <Dont>use a checkbox if the user can only select more than one option</Dont>
+</DosDonts>
+
+### Checkbox
+
+<DosDonts>
+  <Dont>use a checkbox if the user can only select one option</Dont>
+  <Do>allow all options in the list to be selectable</Do>
+  <Dont>allow one checkbox in the list disable others</Dont>
+</DosDonts>

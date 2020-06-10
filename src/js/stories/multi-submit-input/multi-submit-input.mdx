@@ -1,0 +1,84 @@
+import { MultiSubmitInput, MultiSubmitInputOption } from '../index'
+import TOC from '../_toc'
+import PagesIcon from '../../../img/icons/ui/pages.svg'
+import PeopleIcon from '../../../img/icons/ui/people.svg'
+import MapPinIcon from '../../../img/icons/ui/map-pin.svg'
+
+# Multi Submit Button Dropdown
+
+This input consists of 2 components: `MultiSubmitInput` and `MultiSubmitInputOption`. They must always be used together with `MultiSubmitInputOption` as a child of `MultiSubmitInput`.
+
+<TOC
+  items={[
+    'MultiSubmitInput Component',
+    'MultiSubmitInput Options',
+    'Keyboard Accessibility',
+    'WIP (@TODO)'
+  ]}
+/>
+
+<div className="w-1/2 mb-32">
+  <MultiSubmitInput label="Label" id="id" name="name" placeholder="placeholder">
+    <MultiSubmitInputOption urlParam="" icon={<PagesIcon />}>
+      Search the site
+    </MultiSubmitInputOption>
+    <MultiSubmitInputOption urlParam="members" icon={<PeopleIcon />}>
+      Find a member
+    </MultiSubmitInputOption>
+    <MultiSubmitInputOption urlParam="clubs" icon={<MapPinIcon />}>
+      Find a club
+    </MultiSubmitInputOption>
+  </MultiSubmitInput>
+</div>
+
+```tsx
+import PagesIcon from 'path/to/pages.svg'
+import PeopleIcon from 'path/to/people.svg'
+import MapPinIcon from 'path/to/map-pin.svg'
+
+<MultiSubmitInput label="Label" id="id" name="name" placeholder="placeholder">
+  <MultiSubmitInputOption urlParam="" icon={<PagesIcon />}>
+    Search the site
+  </MultiSubmitInputOption>
+  <MultiSubmitInputOption urlParam="members" icon={<PeopleIcon />}>
+    Find a member
+  </MultiSubmitInputOption>
+  <MultiSubmitInputOption urlParam="clubs" icon={<MapPinIcon />}>
+    Find a club
+  </MultiSubmitInputOption>
+</MultiSubmitInput>
+```
+
+## MultiSubmitInput Component
+
+All props (`label`, `id`, `name`, `placeholder`) are required. `MultiSubmitInput` uses an `Input` component under the hood. A `MultiSubmitInput` must have one or more `MultiSubmitInputOption` components as direct children.
+
+```tsx
+<MultiSubmitInput label="Label" id="id" name="name" placeholder="placeholder">
+  // MultiSubmitInputOptions here
+</MultiSubmitInput>
+```
+
+## MultiSubmitInput Options
+
+The `urlParam` prop is the only required prop. The `urlParam` is used to form a search URL that the page will redirect to. Optionally an svg can be passed to the `icon` prop to display an icon on the button. The `MultiSubmitInputOption` component uses a button element under the hood.
+
+> **note:** svg's are automatically transformed to React Components by [babel-plugin-inline-react-svg](https://github.com/airbnb/babel-plugin-inline-react-svg) so svg's **must** be passed as a component
+
+```tsx
+<MultiSubmitInputOption urlParam="" icon={<PagesIcon />}>
+  Search the site
+</MultiSubmitInputOption>
+```
+
+## Keyboard Accessibility
+
+- Submit options dropdown appears after starting to type.
+- The ↑ and ↓ arrows can be used to navigate the submit options.
+- `tab` and `shift + tab` function the same way as the ↑ and ↓ arrows.
+- `esc` will clear the value and close the options dropdown.
+
+## WIP (@TODO)
+
+- Full implementation of this component is not done
+- Add a way for the user to override the `handleClick` functionality

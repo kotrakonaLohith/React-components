@@ -1,0 +1,85 @@
+.notification {
+  @apply p-16;
+
+  & button {
+    @apply absolute;
+    @apply m-20;
+    @apply pin-r;
+    @apply pin-t;
+
+    & svg {
+      @apply rect-icon-sm;
+    }
+  }
+
+  &.-dismiss {
+    @apply pr-50;
+    @apply relative;
+  }
+
+  &.-success {
+    @apply bg-green-100;
+    @apply text-green-600;
+
+    & p a {
+      @apply text-green-600;
+
+      &:hover,
+      &:active {
+        background-image: linear-gradient(to right, config(textColors.green-600) 100%, transparent 100%);
+      }
+
+      &:active {
+        background-image: linear-gradient(to right, config(textColors.green-600) 100%, transparent 100%);
+      }
+    }
+
+    & button {
+      @apply text-green-600;
+    }
+  }
+
+  &.-error {
+    @apply bg-red-100;
+    @apply text-red-600;
+
+    & p a {
+      @apply text-red-600;
+
+      &:hover,
+      &:active {
+        background-image: linear-gradient(to right, config(textColors.red-600) 100%, transparent 100%);
+      }
+
+      &:active {
+        background-image: linear-gradient(to right, config(textColors.red-600) 100%, transparent 100%);
+      }
+    }
+
+    & button {
+      @apply text-red-600;
+    }
+  }
+
+  &.-neutral {
+    @apply bg-bright-blue-100;
+    @apply text-dark-blue-400;
+
+    & p a {
+      @apply text-dark-blue-400;
+
+      &:hover,
+      &:active {
+        background-image: linear-gradient(to right, config(textColors.dark-blue-400) 100%, transparent 100%);
+      }
+
+      &:active {
+        background-image: linear-gradient(to right, config(textColors.dark-blue-400) 100%, transparent 100%);
+      }
+    }
+
+    & button {
+      @apply text-dark-blue-400;
+    }
+  }
+}

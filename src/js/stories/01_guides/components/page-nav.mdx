@@ -1,0 +1,75 @@
+import { PageNav, PageNavItem } from '../../index'
+import { Do, Dont, DosDonts } from '../utils/doc-parts'
+
+## Overview
+
+The entity subnavigation provides access to content and functionality within an individual entity.
+
+---
+
+## Usage
+
+### Club entity subnavigation
+
+This version of the entity subnavigation is presented to users who are viewing a club entity. It includes links for Club Details, Members, Finances, Goals, and Reports. The default landing page is Members.
+
+<PageNav className="mb-32" active="#1">
+  <PageNavItem href="#0">Clubs</PageNavItem>
+  <PageNavItem href="#1">Members</PageNavItem>
+  <PageNavItem href="#2">Finances</PageNavItem>
+  <PageNavItem href="#3">Goals</PageNavItem>
+  <PageNavItem href="#4">Reports</PageNavItem>
+</PageNav>
+
+
+### District entity subnavigation
+
+This version of the entity subnavigation is presented to users who are viewing a district entity. It includes links for Clubs, Members, Finances, Goals, Reports, and Conferences. The default landing page is Members.
+
+<PageNav className="mb-32" active="#1">
+  <PageNavItem href="#0">Clubs</PageNavItem>
+  <PageNavItem href="#1">Members</PageNavItem>
+  <PageNavItem href="#2">Finances</PageNavItem>
+  <PageNavItem href="#3">Goals</PageNavItem>
+  <PageNavItem href="#4">Reports</PageNavItem>
+  <PageNavItem href="#5">Conferences</PageNavItem>
+</PageNav>
+
+
+---
+
+## Best Practices
+
+### General
+
+<DosDonts>
+  <Dont>
+    display the entity subnavigation unless the user is viewing an individual
+    entity
+  </Dont>
+  <Do>
+    underline the link in the subnavigation when the user is viewing that page
+  </Do>
+</DosDonts>
+
+### Club Entity Subnavigation Links
+
+<DosDonts>
+  <Do>
+    use Club Details, Members, Finances, Goals, and Reports for the
+    subnavigation links
+  </Do>
+  <Dont>change the nomenclature of the subnavigation links</Dont>
+  <Dont>include more than 5 subnavigation links</Dont>
+</DosDonts>
+
+### District Entity Subnavigation Links
+
+<DosDonts>
+  <Do>
+    use Clubs, Members, Finances, Goals, Reports, and Conferences for the
+    subnavigation links
+  </Do>
+  <Dont>change the nomenclature of the subnavigation links</Dont>
+  <Dont>include more than 6 subnavigation links</Dont>
+</DosDonts>

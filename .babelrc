@@ -1,0 +1,28 @@
+{
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "": "./src",
+        "#tailwind": "./tailwind.js"
+      }
+    }],
+    "lodash",
+    ["prismjs", {
+      "languages": ["tsx"]
+    }],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread"
+  ],
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "modules": false,
+        "useBuiltIns": "entry"
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/typescript",
+    "./babel-presets/preset-svg"
+  ]
+}

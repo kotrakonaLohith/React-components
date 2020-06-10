@@ -1,0 +1,9 @@
+/* Reach-ui minimal styles (https://ui.reach.tech/menu-button) */
+[data-reach-menu] {
+  @apply absolute;
+  @apply z-middle;
+}
+
+[data-reach-menu-item] {
+  @apply cursor-pointer;
+}

@@ -1,0 +1,144 @@
+import { Button } from '../index'
+import TrashcanIcon from '../../../img/icons/ui/trashcan.svg'
+import PlusIcon from '../../../img/icons/ui/plus.svg'
+
+# Button Types
+
+## Primary
+
+<Button className="mb-32" primary>Primary Button</Button>
+<Button className="mb-32 ml-8" primary disabled>Disabled Primary</Button>
+
+```tsx
+<Button primary>Primary Button</Button>
+<Button primary disabled>Disabled Primary</Button>
+```
+
+## Secondary
+
+<Button className="mb-32" secondary>Secondary Button</Button>
+<Button className="mb-32 ml-8" secondary disabled>Disabled Secondary</Button>
+
+```tsx
+<Button secondary>Secondary Button</Button>
+<Button secondary disabled>Disabled Secondary</Button>
+```
+
+## Destructive
+
+<Button className="mb-32" destructive>Destructive Button</Button>
+<Button className="mb-32 ml-8" destructive disabled>Disabled Destructive</Button>
+
+```tsx
+<Button destructive>Destructive Button</Button>
+<Button destructive disabled>Disabled Destructive</Button>
+```
+
+## Text
+
+<Button className="mb-32" text>Text Button</Button>
+<Button className="mb-32 ml-8" text disabled>Disabled Text</Button>
+<Button className="mb-32 ml-8" text textLight>Text Button</Button>
+<Button className="mb-32 ml-8" text textLight disabled>Disabled Text</Button>
+
+```tsx
+<Button text>Text Button</Button>
+<Button text disabled>Disabled Text</Button>
+
+<Button text textLight>Text Light Button</Button>
+<Button text textLight disabled>Disabled Text Light</Button>
+```
+
+## Icon Buttons
+
+The `icon` prop takes an svg. Icon will take the button's text color.
+
+> **note:** svg's are automatically transformed to React Components by [babel-plugin-inline-react-svg](https://github.com/airbnb/babel-plugin-inline-react-svg) so svg's **must** be passed as a component
+
+<Button
+  className="mb-32 text-bright-blue-500 hover:text-bright-blue-300"
+  icon={<TrashcanIcon />}
+  plain
+/>
+
+```tsx
+import TrashcanIcon from 'path/to/trashcan.svg'
+
+<Button
+  className="text-bright-blue-500 hover:text-bright-blue-300"
+  icon={<TrashcanIcon />}
+  plain
+/>
+```
+
+<Button className="mb-32" icon={<TrashcanIcon />} secondary>
+  Delete
+</Button>
+
+```tsx
+import TrashcanIcon from 'path/to/trashcan.svg'
+<Button icon={<TrashcanIcon />} secondary>
+  Delete
+</Button>
+```
+
+### Adding Icon Classes
+
+Icon color can usually be set by setting the `Button` text color. However, there are times when finer control of icon classes are needed. Use the `iconClass` prop to set `className` directly on the `icon`.
+
+> A class to size (`rect-icon` in the example below) the `icon` is required when using the `iconClass` prop
+
+<Button
+  className="mb-32"
+  iconClass="text-dark-blue-600 hover:text-dark-blue-200 rect-icon"
+  icon={<TrashcanIcon />}
+  plain
+/>
+
+```tsx
+<Button
+  iconClass="text-dark-blue-600 hover:text-dark-blue-200 rect-icon"
+  icon={<TrashcanIcon />}
+  plain
+/>
+```
+
+## Text Icon Button
+
+<div>
+  <Button className="text-gray-400 hover:text-gray-600 focus:text-gray-600 mb-32 " text textIcon={<TrashcanIcon />}>Text Icon Button</Button>
+  <Button className="mb-32 ml-8" text textIcon={<TrashcanIcon />} disabled>Disabled Text Icon Button</Button>
+</div>
+<div>
+  <Button className="text-bright-blue-600 hover:text-dark-blue-300 focus:text-dark-blue-300 mb-32 " text textIcon={<PlusIcon />}>Text Icon Button</Button>
+  <Button className="mb-32 ml-8" text textIcon={<PlusIcon />} disabled>Disabled Text Icon Button</Button>
+</div>
+
+```tsx
+import TrashcanIcon from 'path/to/trashcan.svg'
+import PlusIcon from 'path/to/plus.svg'
+
+<Button
+  className="text-gray-400 hover:text-gray-600 focus:text-gray-600"
+  text
+  textIcon={<TrashcanIcon />}
+>
+  Text Icon Button
+</Button>
+
+<Button text textIcon={<TrashcanIcon />} disabled>
+  Disabled Text Icon Button
+</Button>
+
+<Button
+  className="text-bright-blue-600 hover:text-dark-blue-300 focus:text-dark-blue-300"
+  text
+  textIcon={<PlusIcon />}
+>
+  Text Icon Button
+</Button>
+
+<Button text textIcon={<PlusIcon />} disabled>
+  Disabled Text Icon Button
+</Button>
+```

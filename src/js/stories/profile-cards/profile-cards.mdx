@@ -1,0 +1,306 @@
+import {
+  ProfileCard,
+  ProfileCardGroup,
+  ProfileCardHeader,
+  ProfileCardItem,
+  Dropdown,
+  DropdownButton,
+  DropdownItem,
+  DropdownList
+} from '../index'
+import TOC from '../_toc'
+
+# Profile Cards
+
+<TOC
+  items={[
+    'Basic Profile Card',
+    'Selectable Profile Card',
+    'Adding a Dropdown',
+    'Profile Card Header',
+    'Profile Card Item',
+    'Profile Card Groups',
+    'A11y',
+    'WIP (@TODO)'
+  ]}
+/>
+
+## Basic Profile Card
+
+A profile card consists of three independent components. The wrapper: `ProfileCard`, the header: `ProfileCardHeader`, and the items: `ProfileCardItem`. A `ProfileCard` can contain up to 2 `ProfileCardItem` but must always a single `ProfileCardHeader`.
+
+<ProfileCard>
+  <ProfileCardHeader heading="Deepika Vekatesh">
+    <span className="break-all">deepika.venkatesh@gmail.com</span> <br />
+    +91 123-456-7890 <br />
+    ID# 12345678
+  </ProfileCardHeader>
+  <ProfileCardItem>
+    E/1 2nd. Flr. <br />
+    1234 G.N. Chetty Rd. <br />
+    Madras, 600017, India <br />
+    Tamil Nadu
+  </ProfileCardItem>
+  <ProfileCardItem label="Previous Club Affiliation">
+    Delhi Garden City Rotary Club New Delhi, Delhi, India <br />
+    Terminated: June 12, 2018
+  </ProfileCardItem>
+</ProfileCard>
+
+```tsx
+<ProfileCard>
+  <ProfileCardHeader heading="Deepika Vekatesh">
+    <span className="break-all">deepika.venkatesh@gmail.com</span> <br />
+    +91 123-456-7890 <br />
+    ID# 12345678
+  </ProfileCardHeader>
+  <ProfileCardItem>
+    E/1 2nd. Flr. <br />
+    1234 G.N. Chetty Rd. <br />
+    Madras, 600017, India <br />
+    Tamil Nadu
+  </ProfileCardItem>
+  <ProfileCardItem label="Previous Club Affiliation">
+    Delhi Garden City Rotary Club New Delhi, Delhi, India <br />
+    Terminated: June 12, 2018
+  </ProfileCardItem>
+</ProfileCard>
+```
+
+## Selectable Profile Card
+
+Add a "select" button to the card with the `selectable` prop. The action the button takes depends on _either_ the `handleSelect` prop or the `url` prop. `handleSelect` is a function that is called on the buttons `onClick` handler. `url` is a string that will populate the `href` of a link.
+
+<ProfileCard
+  selectable
+  handleSelect={() => {
+    alert('selected')
+  }}
+>
+  <ProfileCardHeader heading="Deepika Vekatesh">
+    <span className="break-all">deepika.venkatesh@gmail.com</span> <br />
+    +91 123-456-7890 <br />
+    ID# 12345678
+  </ProfileCardHeader>
+  <ProfileCardItem>
+    E/1 2nd. Flr. <br />
+    1234 G.N. Chetty Rd. <br />
+    Madras, 600017, India <br />
+    Tamil Nadu
+  </ProfileCardItem>
+  <ProfileCardItem label="Previous Club Affiliation">
+    Delhi Garden City Rotary Club New Delhi, Delhi, India <br />
+    Terminated: June 12, 2018
+  </ProfileCardItem>
+</ProfileCard>
+
+```tsx
+<ProfileCard selectable handleSelect={() => { alert('selected') }}>
+  // ProfileCardHeader
+  // ProfileCardItems
+</ProfileCard>
+
+<ProfileCard selectable url="#">
+  // ProfileCardHeader
+  // ProfileCardItems
+</ProfileCard>
+```
+
+## Adding a Dropdown
+
+Pass a `Dropdown` component to the `dropdown` prop.
+
+<ProfileCard
+  dropdown={
+    <Dropdown>
+      <DropdownButton className="text-gray-400 text-xl mx-20">
+        ...
+      </DropdownButton>
+      <DropdownList>
+        <DropdownItem isLink href="#">
+          Replace this person with someone else
+        </DropdownItem>
+        <DropdownItem isLink href="#">
+          Remove this person from office
+        </DropdownItem>
+      </DropdownList>
+    </Dropdown>
+  }
+>
+  <ProfileCardHeader heading="Deepika Vekatesh">
+    <span className="break-all">deepika.venkatesh@gmail.com</span> <br />
+    +91 123-456-7890 <br />
+    ID# 12345678
+  </ProfileCardHeader>
+</ProfileCard>
+
+```tsx
+<ProfileCard
+  dropdown={
+    <Dropdown>
+      <DropdownButton className="text-gray-400 text-xl mx-20">
+        ...
+      </DropdownButton>
+      <DropdownList>
+        <DropdownItem isLink href="#">
+          Replace this person with someone else
+        </DropdownItem>
+        <DropdownItem isLink href="#">
+          Remove this person from office
+        </DropdownItem>
+      </DropdownList>
+    </Dropdown>
+  }
+>
+  // ProfileCardHeader
+</ProfileCard>
+```
+
+## Profile Card Header
+
+There are two styles for `ProfileCardHeader` components:
+
+- Standard (shown in examples above): Does not require any additional props. To set a heading use the `heading` prop.
+- Assignable (shown below): Use the `isAssignable` prop. To set a heading use the `heading` prop. To set a label above the heading use the `label` prop. There are two states of assignable `ProfileCardHeader` components:
+  - Filled: no additional props needed
+  - Empty: to mark as empty use the `empty` prop. An empty `ProfileCardHeader` can take an `href` prop (string) or `onClick` prop (function). If there is no `label` and `heading` the `unassignedText` prop should be set with placeholder text.
+
+<ProfileCard>
+  <ProfileCardHeader
+    href="#"
+    isAssignable
+    empty
+    unassignedText="Add a New Assistant Governor"
+  />
+</ProfileCard>
+
+<ProfileCard>
+  <ProfileCardHeader
+    onClick={() => {
+      console.log('hey') // tslint:disable-line:no-console
+    }}
+    isAssignable
+    empty
+    label="President"
+  />
+</ProfileCard>
+
+<ProfileCard
+  dropdown={
+    <Dropdown>
+      <DropdownButton className="text-gray-400 text-xl mx-20">
+        ...
+      </DropdownButton>
+      <DropdownList>
+        <DropdownItem isLink href="#">
+          Replace this person with someone else
+        </DropdownItem>
+        <DropdownItem isLink href="#">
+          Remove this person from office
+        </DropdownItem>
+      </DropdownList>
+    </Dropdown>
+  }
+>
+  <ProfileCardHeader isAssignable label="President" heading="Deepika Vekatesh">
+    Served since 2018-2019
+  </ProfileCardHeader>
+</ProfileCard>
+
+```tsx
+<ProfileCard>
+  <ProfileCardHeader
+    href="#"
+    isAssignable
+    empty
+    unassignedText="Add a New Assistant Governor"
+  />
+</ProfileCard>
+
+<ProfileCard>
+  <ProfileCardHeader
+    onClick={() => {
+      console.log('hey') // tslint:disable-line:no-console
+    }}
+    isAssignable
+    empty
+    label="President"
+  />
+</ProfileCard>
+
+<ProfileCard dropdown={{/* Dropdown component */}}>
+  <ProfileCardHeader
+    isAssignable
+    label="President"
+    heading="Deepika Vekatesh"
+  >
+    Served since 2018-2019
+  </ProfileCardHeader>
+</ProfileCard>
+```
+
+## Profile Card Item
+
+A `ProfileCard` can containe 1 or 2 `ProfileCardItem` components. The `ProfileCardItem` component can take an optional `label` prop.
+
+<ProfileCard>
+  <ProfileCardItem label="Previous Club Affiliation">
+    Delhi Garden City Rotary Club New Delhi, Delhi, India <br />
+    Terminated: June 12, 2018
+  </ProfileCardItem>
+</ProfileCard>
+
+```tsx
+<ProfileCardItem label="Previous Club Affiliation">
+  Delhi Garden City Rotary Club New Delhi, Delhi, India <br />
+  Terminated: June 12, 2018
+</ProfileCardItem>
+```
+
+## Profile Card Groups
+
+`ProfileCards` can be grouped together under a single card id with a `ProfileCardGroup` wrapper component. `ProfileCardGroup` can take a `className` prop to aid in spacing.
+
+<ProfileCardGroup className="mb-20" cid="my-card-group">
+  <ProfileCard>
+    <ProfileCardHeader
+      onClick={() => {
+        alert('assign!')
+      }}
+      isAssignable
+      empty
+      label="President"
+    />
+  </ProfileCard>
+  <ProfileCard>
+    <ProfileCardHeader
+      onClick={() => {
+        alert('assign!')
+      }}
+      isAssignable
+      empty
+      label="Vice President"
+    />
+  </ProfileCard>
+</ProfileCardGroup>
+
+```tsx
+<ProfileCardGroup className="mb-20" cid="my-card-group">
+  // ProfileCards
+</ProfileCardGroup>
+```
+
+## A11y
+
+When wrapping `ProfileCards` in a `ProfileCardGroup` the `cid` prop is required. This id is used to generate unique aria attributes for each card that uses the `View Record`/`Hide Record` functionality.
+
+```tsx
+<ProfileCardGroup cid="my-unique-card-id">
+  // ProfileCards here
+</ProfileCardGroup>
+```
+
+## WIP (@TODO)
+
+- Full implementation of this component is not done
+- Add a way to pass an avatar image to a profile card

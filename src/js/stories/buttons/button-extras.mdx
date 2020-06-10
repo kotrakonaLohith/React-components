@@ -1,0 +1,33 @@
+import { Button } from '../index'
+
+# Button Additional Docs
+
+## Button as anchor
+
+To make a button into a link use the `anchor` prop and add an `href`.
+
+<Button className="mb-32" primary anchor href="#">Anchor Button</Button>
+
+```tsx
+<Button anchor href="#">Anchor Button</Button>
+```
+
+## Avoid Uppercase
+
+To eliminate all-caps style of buttons use the `avoidUppercase` prop.
+
+<Button className="mb-32" primary avoidUppercase>Avoid Uppercase Button</Button>
+
+```tsx
+<Button primary avoidUppercase>Avoid Uppercase Button</Button>
+```
+
+## Block Button
+
+Apply the `full` class to make a full width button.
+
+<Button className="full mb-32" primary>Block Button</Button>
+
+```tsx
+<Button className="full" primary>Block Button</Button>
+```

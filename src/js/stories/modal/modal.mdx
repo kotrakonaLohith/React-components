@@ -1,0 +1,46 @@
+import { Modal, Form, FormField, Button } from '../index'
+
+# Modal
+
+@TODO: documentation
+
+## Basic Modal
+
+@TODO: documentation
+
+<Modal showCloseBtn={true}>
+  <Form>
+    <h1 className="heading -secondary mb-40">Example Form Inside a Modal</h1>
+    <FormField
+      className="mb-24"
+      type="input"
+      label="Input field"
+      name="input"
+      placeholder="Placeholder text"
+      tooltip={<>Exampe tooltip</>}
+    />
+    <Button className="full" primary type="submit">
+      Form Button
+    </Button>
+  </Form>
+</Modal>
+<div className="mb-20" />
+
+```tsx
+<Modal showCloseBtn={true}>
+  <Form>
+    <h1 className="heading -secondary mb-40">Example Form Inside a Modal</h1>
+    <FormField
+      className="mb-24"
+      type="input"
+      label="Input field"
+      name="input"
+      placeholder="Placeholder text"
+      tooltip={<>Exampe tooltip</>}
+    />
+    <Button className="full" primary type="submit">
+      Form Button
+    </Button>
+  </Form>
+</Modal>
+```

@@ -1,0 +1,105 @@
+import { Pagination, PaginationItem } from '../index'
+import ManagedPagination from './managedPagination'
+
+# Pagination
+
+<Pagination className="mb-20" onSelect={() => {}} currentItem={0}>
+  <PaginationItem url="#1">1</PaginationItem>
+  <PaginationItem url="#2">2</PaginationItem>
+  <PaginationItem url="#3">3</PaginationItem>
+  <PaginationItem url="#4">4</PaginationItem>
+  <PaginationItem url="#5">5</PaginationItem>
+</Pagination>
+
+## Pagination
+
+The `Pagination` component takes two props: `onSelect` is a function that receives an object with an `index` and a `url`. `currentItem` highlights the `PaginationItem` at that index. The `Pagination` component does not manage it's own current item, it must be passed through `currentItem`. The `className` prop can be used for spacing.
+
+```tsx
+<Pagination className="mb-20" onSelect={handleSelectFn} currentItem={0}>
+  // PaginationItems
+</Pagination>
+```
+
+## Pagination Item
+
+The `PaginationItem` component takes a `url` prop. The `url` will act as an `href` on a link if no `onSelect` prop is passed to the parent `Pagination` component, otherwise it will be passed as the `url` parameter of the function passed to the `onSelect` prop. The `ellipsis` prop can be used for large pagination sets.
+
+```tsx
+<PaginationItem url="#1">1</PaginationItem>
+<PaginationItem ellipsis>...</PaginationItem>
+```
+
+## Managed Pagination
+
+A `Pagination` component can be fully managed by updating the `currentItem` and using the `onSelect` prop. By setting the `onSelect` prop the `Pagination` component will automatically call `event.preventDefault()` and pass all the data needed to manage the pagination to the function passed (ie. an object like `{url: <url-of-the-item>, index: <index-of-the-item>}`)
+
+<ManagedPagination />
+
+```tsx
+const MyManagedPagination = () => {
+  const [current, setCurrent] = useState(0)
+
+  return (
+    <Pagination
+      currentItem={current}
+      onSelect={({ index, url }) => {
+        alert(url) // do something with the selected url
+        setCurrent(index) // set the currentItem to the selected item
+      }}
+    >
+      <PaginationItem url="#1">1</PaginationItem>
+      <PaginationItem url="#2">2</PaginationItem>
+      <PaginationItem url="#3">3</PaginationItem>
+      <PaginationItem url="#4">4</PaginationItem>
+      <PaginationItem url="#5">5</PaginationItem>
+    </Pagination>
+  )
+}
+```
+
+## Unmanaged Pagination
+
+A `Pagination` component without a `onSelect` prop set will function the same way a list of links would. The `next` and `prev` buttons will be based on what is passed to `currentItem`.
+
+<Pagination className="mb-20" currentItem={4}>
+  <PaginationItem url="#1">1</PaginationItem>
+  <PaginationItem url="#2">2</PaginationItem>
+  <PaginationItem url="#3">3</PaginationItem>
+  <PaginationItem url="#4">4</PaginationItem>
+  <PaginationItem url="#5">5</PaginationItem>
+</Pagination>
+
+```tsx
+<Pagination currentItem={4}>
+  <PaginationItem url="#1">1</PaginationItem>
+  <PaginationItem url="#2">2</PaginationItem>
+  <PaginationItem url="#3">3</PaginationItem>
+  <PaginationItem url="#4">4</PaginationItem>
+  <PaginationItem url="#5">5</PaginationItem>
+</Pagination>
+```
+
+## Change Prev/Next Labels
+
+To change the Prev and Next labels pass a `labels` prop to the `Pagination` component. The `labels` prop takes an object with 2 properties `next` and `prev` that each take a string for the corresponding label.
+
+<Pagination
+  className="mb-20"
+  currentItem={0}
+  labels={{ next: '>>', prev: '<<' }}
+>
+  <PaginationItem url="#1">1</PaginationItem>
+  <PaginationItem url="#2">2</PaginationItem>
+  <PaginationItem url="#3">3</PaginationItem>
+  <PaginationItem url="#4">4</PaginationItem>
+  <PaginationItem url="#5">5</PaginationItem>
+</Pagination>
+
+```tsx
+<Pagination
+  labels={{ next: '>>', prev: '<<' }}
+>
+  // PaginationItems
+</Pagination>
+```

@@ -1,0 +1,78 @@
+.react-datepicker-popper {
+  @apply max-w-datepicker-input;
+  @apply w-full;
+}
+.react-datepicker {
+  @apply rounded-none;
+  @apply border;
+}
+.react-datepicker__header {
+  @apply border-t-0;
+  @apply border-b-0;
+  @apply bg-white;
+}
+
+.year-month-dropdown {
+  @apply pt-12;
+  @apply px-32;
+  @apply pb-0;
+}
+
+.month-dropdown {
+  min-width: 167px;
+}
+
+.year-dropdown {
+  min-width: 108px;
+}
+
+.month-dropdown svg,
+.year-dropdown svg {
+  @apply mr-16;
+}
+
+.react-datepicker__month {
+  @apply pt-24;
+  @apply px-32;
+  @apply pb-28;
+}
+
+.react-datepicker__day-names {
+  @apply hidden;
+}
+
+.react-datepicker label {
+  @apply mb-0;
+}
+
+.year-month-dropdown,
+.react-datepicker__week {
+  @apply flex;
+  @apply justify-between;
+}
+
+.react-datepicker__week:not(:last-child) {
+  @apply mb-20;
+}
+
+.react-datepicker__day {
+  min-width: 28px;
+  min-height: 20px;
+  @apply text-center;
+  @apply text-sm;
+  @apply leading-tight;
+  color: #343434;
+}
+
+.react-datepicker__day--selected {
+  @apply rounded-sm;
+  @apply text-white;
+  @apply font-bold;
+  @apply p-6;
+  @apply -mt-6;
+  background-color: #019fcb;
+}
+
+.react-datepicker__day--outside-month {
+  color: #b3b3b3;
+}

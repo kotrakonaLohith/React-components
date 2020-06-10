@@ -1,0 +1,10 @@
+.custom-select-pointer {
+  @apply absolute;
+  @apply bg-white;
+  @apply block;
+  @apply border-t border-r;
+  @apply pos-after;
+  @apply rect-icon;
+  left: 50%;
+  transform: rotate(-45deg) translate(-50%, -16px);
+}

@@ -1,0 +1,36 @@
+.page-nav {
+  @apply relative;
+
+  &::after {
+    content: "";
+    @apply absolute;
+    @apply block;
+    @apply border-b-3;
+    @apply pin-b;
+    @apply w-full;
+    @apply z-0;
+  }
+}
+
+.page-nav__item {
+  @apply relative;
+  @apply z-bottom;
+
+  &.-active {
+    &::after {
+      content: "";
+      @apply absolute;
+      @apply block;
+      @apply border-b-3 border-dark-blue-400;
+      @apply mt-px;
+      @apply pos-after;
+      @apply w-full;
+    }
+  }
+}
+
+.page-nav-dropdown-button {
+  &[aria-expanded="true"] {
+    @apply font-bold;
+  }
+}

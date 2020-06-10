@@ -1,0 +1,97 @@
+import { Notification } from '../index'
+import TOC from '../_toc'
+
+# Notifications
+
+<TOC
+  items={[
+    'Neutral Notification',
+    'Success Notification',
+    'Error Notification',
+    'Dismissable'
+  ]}
+/>
+
+## Neutral Notification
+
+For a neutral notification don't add any props. For any spacing styles (eg. margins) use `className`.
+
+<Notification className="mb-20">
+  <p>
+    This is a neutral message. <a href="#">Link</a>
+  </p>
+</Notification>
+
+```tsx
+<Notification className="mb-20">
+  <p>
+    This is a neutral message. <a href="#">Link</a>
+  </p>
+</Notification>
+```
+
+## Success Notification
+
+For a success notification add the `success` prop.
+
+<Notification success className="mb-20">
+  <p>
+    Success! Deepika Venkatesh has been added as a member of your club.{' '}
+    <a href="#">Add another member</a>
+  </p>
+</Notification>
+
+```tsx
+<Notification success className="mb-20">
+  <p>
+    Success! Deepika Venkatesh has been added as a member of your club.{' '}
+    <a href="#">Add another member</a>
+  </p>
+</Notification>
+```
+
+## Error Notification
+
+For an error notification add the `error` prop.
+
+<Notification error className="mb-20">
+  <p>
+    1 required item missing <a href="#">Link</a>
+  </p>
+</Notification>
+
+```tsx
+<Notification error className="mb-20">
+  <p>
+    1 required item missing <a href="#">Link</a>
+  </p>
+</Notification>
+```
+
+## Dismissable
+
+To make a Notifcation dismissable include the `onClose` prop with a function to handle dismissal.
+
+<Notification
+  onClose={() => {
+    alert('handle closing')
+  }}
+  className="mb-20"
+>
+  <p>
+    This is a neutral message. <a href="#">Link</a>
+  </p>
+</Notification>
+
+```tsx
+<Notification
+  onClose={() => {
+    alert('handle closing')
+  }}
+  className="mb-20"
+>
+  <p>
+    This is a neutral message. <a href="#">Link</a>
+  </p>
+</Notification>
+```

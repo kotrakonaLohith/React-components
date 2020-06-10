@@ -1,0 +1,91 @@
+import { MainHeader, LoggedOutHeader, NoEntitiesHeader } from '../../02_parts/header/headers'
+import { Do, Dont, DosDonts } from '../utils/doc-parts'
+
+## Overview
+
+The header is the primary navigation touchpoint and provides access to key content and functionality within My Rotary.
+
+___
+
+## Usage
+
+### Logged out
+
+This version of the header is presented to users who are not currently signed in to My Rotary. It does not include the My Account dropdown. Sign In and Register links are presented instead. It also does not include the Home item or the entity navigation. The default landing page is News & Events.
+
+<div class="mb-32">
+  <LoggedOutHeader />
+</div>
+
+### Logged in - no entities
+
+This version of the header is presented to users who are currently signed in to My Rotary but have not been assigned the necessary permissions in order to access content and functionality for any entities. It does not include the Home item or the entity navigation. The default landing page is News & Events.
+
+<div class="mb-32">
+  <NoEntitiesHeader />
+</div>
+
+### Logged in - with entities
+
+This version of the header is presented to users who are currently signed in to My Rotary but have been assigned the necessary permissions in order to access content and functionality for 1 or more entities. It includes the Home item and the entity navigation. The default landing page is Home.
+
+<div class="mb-32">
+  <MainHeader />
+</div>
+
+___
+
+## Best Practices
+
+### General
+
+<DosDonts>
+  <Do>direct the user to Rotary.org when they select the Rotary logo</Do>
+  <Do>direct the user to the default landing page for My Rotary (Home or News & Events) when they select My Rotary</Do>
+  <Dont>use a sticky behavior for the header</Dont>
+</DosDonts>
+
+### Primary Navigation Links
+
+<DosDonts>
+  <Do>use Home, News & Events, Projects & Grants, and Resources for the primary navigation links</Do>
+  <Dont>change the nomenclature of the primary navigation links</Dont>
+  <Dont>include more than 4 primary navigation links</Dont>
+  <Dont>display the Home link to users who don’t have the appropriate permissions to access at least 1 entity</Dont>
+  <Do>display the Home link to users who have the appropriate permissions to access 1 or more entities</Do>
+</DosDonts>
+
+### Primary CTA Buttons
+
+<DosDonts>
+  <Do>use Join and Donate for the action CTA buttons</Do>
+  <Dont>present more than 2 action CTA buttons</Dont>
+  <Dont>use the primary CTA buttons for actions that aren’t critical</Dont>
+</DosDonts>
+
+### Secondary Navigation Links
+
+<DosDonts>
+  <Do>use the language selector, Help, and account actions for the secondary navigation links</Do>
+  <Dont>change the nomenclature of the secondary navigation links</Dont>
+  <Dont>include more than 4 secondary action links</Dont>
+  <Do>use the standard dropdown for the language selector</Do>
+  <Do>present the selected language in the header</Do>
+  <Do>use the gold link style for the Sign In and Register links</Do>
+  <Dont>use the gold link style for other links within the secondary navigation</Dont>
+  <Do>display Sign In and Register links to logged out users</Do>
+  <Dont>display Sign In and Register links to logged in users</Dont>
+  <Do>use the complex dropdown for My Account</Do>
+  <Dont>display the My Account link to logged out users</Dont>
+  <Do>display the My Account link to logged in users</Do>
+</DosDonts>
+
+### Entity Navigation
+
+<DosDonts>
+  <Dont>display the entity navigation to users who do not have the appropriate permissions to access at least 1 entity</Dont>
+  <Do>display the entity navigation to users who have the appropriate permissions to access 1 or more entities</Do>
+  <Do>include the overflow menu when there are more entities than can be displayed in the width of the entity navigation</Do>
+  <Do>use the overflow dropdown when the overflow menu is needed</Do>
+  <Do>underline the entity when the user is viewing content for that entity</Do>
+</DosDonts>

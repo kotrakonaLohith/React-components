@@ -1,0 +1,133 @@
+/* Custom Selects */
+.styled-select {
+  @apply relative;
+
+  &::before {
+    @apply absolute;
+    @apply bg-white;
+    @apply block;
+    @apply mt-px mb-px mr-px;
+    @apply pin-y pin-r;
+    @apply pointer-events-none;
+    content: '';
+    width: 40px;
+  }
+
+  &.-disabled {
+    &::before {
+      @apply bg-gray-100;
+    }
+  }
+}
+
+/* Custom checkbox and radio buttons */
+.styled-checkbox,
+.styled-radio {
+  & label {
+    @apply block;
+    @apply cursor-pointer;
+    @apply leading-normal;
+    @apply relative;
+    @apply pl-32;
+  }
+
+  &.-error {
+    & label {
+      @apply text-red-600;
+    }
+  }
+}
+
+.styled-checkbox__box,
+.styled-radio__box {
+  @apply absolute;
+  @apply bg-white;
+  @apply block;
+  @apply border;
+  @apply mt-2;
+  @apply pin-l pin-t;
+  @apply rect-icon;
+
+  @nest .-error & {
+    @apply border-red-600;
+  }
+}
+
+.styled-checkbox__box {
+  @apply rounded-px;
+
+  & svg {
+    @apply absolute;
+    @apply pos-center;
+    @apply rect-icon-xs;
+    @apply text-white;
+  }
+}
+
+.styled-radio__box {
+  @apply rounded-full;
+
+  & i {
+    @apply rounded-full;
+    @apply absolute;
+    @apply pos-center;
+    @apply rect-icon-xxs;
+  }
+}
+
+input:checked + label {
+  @apply font-bold;
+
+  & .styled-checkbox__box {
+    @apply bg-bright-blue-500;
+    @apply border-bright-blue-500;
+  }
+
+  & .styled-radio__box i {
+    @apply bg-bright-blue-500;
+  }
+}
+
+input:focus + label {
+  & .styled-checkbox__box,
+  & .styled-radio__box {
+    @apply border-bright-blue-500;
+  }
+
+  &.styled-file-input {
+    & span.btn {
+      @apply bg-bright-blue-600;
+      @apply text-white;
+      @apply shadow-outline;
+    }
+  }
+}
+
+input:focus + label,
+input:focus:checked + label {
+  & .styled-checkbox__box,
+  & .styled-radio__box {
+    @apply shadow-outline;
+  }
+}
+
+input[disabled] + label {
+  @apply text-gray-300;
+
+  & .styled-checkbox__box,
+  & .styled-radio__box {
+    @apply bg-gray-100;
+
+    & svg {
+      @apply hidden;
+    }
+  }
+
+  &.styled-file-input {
+    & span.btn {
+      @apply bg-bright-blue-400;
+      @apply border-bright-blue-400;
+      @apply text-white;
+    }
+  }
+}

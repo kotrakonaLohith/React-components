@@ -1,0 +1,154 @@
+import { StatusMarker } from '../index'
+
+# Lists
+
+## Unordered Lists
+
+Add `list` class for list styles
+
+<ul className="list pb-20">
+  <li>List Item</li>
+  <li>List Item</li>
+  <li>
+    List Item Long: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+    est laborum.
+  </li>
+  <li>List Item</li>
+</ul>
+
+```tsx
+<ul className="list">
+  <li>List Item</li>
+  <li>List Item</li>
+  ...
+</ul>
+```
+
+## Ordered Lists
+
+Add `list` class for list styles
+
+<ol className="list pb-20">
+  <li>List Item</li>
+  <li>List Item</li>
+  <li>
+    List Item Long: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+    est laborum.
+  </li>
+  <li>List Item</li>
+  <li>List Item</li>
+</ol>
+
+```tsx
+<ol className="list">
+  <li>List Item</li>
+  <li>List Item</li>
+  ...
+</ol>
+```
+
+## Description Lists
+
+Add the `desc-list` class to description lists (`dl`) for default styles. Description lists are indented `40px` so any title associated with the description list should use the `pl-40` class to achieve the same indentation. For multi-paragraph content use `c-mb-12` to add the appropriate margin between paragraphs.
+
+<div>
+  <h4 className="heading-alt text-sm pl-40 mb-20">
+    Description List Group Title
+  </h4>
+  <dl className="desc-list mb-32">
+    <dt>Multi-paragraph</dt>
+    <dd className="c-mb-12">
+      <p>
+        Deepika is a skilled professional with an MBA in Corporate Finance &
+        Strategy and has 8+ years’ experience in successfully leading and
+        delivering strategic and FP&A changes in large organizations. She
+        focuses on budget management, financial planning and forecasting,
+        financial reporting, commercial management, inventory management,
+        operational analysis, data manipulation, governance
+      </p>
+      <p>
+        She is a quick-learner, thriving in challenging environment with calm,
+        clarity and confidence. She has excellent written and oral communication
+        and presentation skills. She has a hands-on-approach and is driven by
+        out of the box strategic thinking, attention to detail, and forging
+        strong cross-divisional relationships with internal and external clients
+        resulting in delivering of innovative and workable solutions.
+      </p>
+    </dd>
+    <dt>List of items</dt>
+    <dd>
+      <p>Training Leader (2017-18)</p>
+      <p>Assistant Rotary Public Image Coordinator (2015-16)</p>
+    </dd>
+    <dt>List of items with status</dt>
+    <dd>
+      <p>Visiting: Congo, the Democratic Republic of</p>
+      <p>From: United States</p>
+      <p>Dates: 11/1/2018 - 3/1/2019</p>
+      <StatusMarker className="mt-12" />
+    </dd>
+    <dt>List of items with status verified</dt>
+    <dd>
+      <p>Visiting: Congo, the Democratic Republic of</p>
+      <p>From: United States</p>
+      <p>Dates: 11/1/2018 - 3/1/2019</p>
+      <StatusMarker verified className="mt-12" />
+    </dd>
+  </dl>
+</div>
+
+```tsx
+<h4 className="heading-alt text-sm pl-40 mb-20">
+  Description List Group Title
+</h4>
+<dl className="desc-list mb-32">
+  <dt>Multi-paragraph</dt>
+  <dd className="c-mb-12">
+    <p>
+      Deepika is a skilled professional with an MBA in Corporate Finance &
+      Strategy and has 8+ years’ experience in successfully leading and
+      delivering strategic and FP&A changes in large organizations. She
+      focuses on budget management, financial planning and forecasting,
+      financial reporting, commercial management, inventory management,
+      operational analysis, data manipulation, governance
+    </p>
+    <p>
+      She is a quick-learner, thriving in challenging environment with calm,
+      clarity and confidence. She has excellent written and oral communication
+      and presentation skills. She has a hands-on-approach and is driven by
+      out of the box strategic thinking, attention to detail, and forging
+      strong cross-divisional relationships with internal and external clients
+      resulting in delivering of innovative and workable solutions.
+    </p>
+  </dd>
+  <dt>List of items</dt>
+  <dd>
+    <p>Training Leader (2017-18)</p>
+    <p>Assistant Rotary Public Image Coordinator (2015-16)</p>
+  </dd>
+  <dt>List of items with status</dt>
+  <dd>
+    <p>Visiting: Congo, the Democratic Republic of</p>
+    <p>From: United States</p>
+    <p>Dates: 11/1/2018 - 3/1/2019</p>
+    <StatusMarker className="mt-12" />
+  </dd>
+  <dt>List of items with status verified</dt>
+  <dd>
+    <p>Visiting: Congo, the Democratic Republic of</p>
+    <p>From: United States</p>
+    <p>Dates: 11/1/2018 - 3/1/2019</p>
+    <StatusMarker verified className="mt-12" />
+  </dd>
+</dl>
+```

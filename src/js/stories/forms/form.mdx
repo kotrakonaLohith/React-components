@@ -1,0 +1,590 @@
+import { Button, ErrorText, Form, FormField, HelpText } from '../index'
+import TOC from '../_toc'
+import options from './_options'
+
+# Form and FormField
+
+Use `Form` and `FormField` to create controlled forms. `Form` must have `FormField` components as children, and will receive all their values inside the `onSubmit` handler, the values will be keyed by the `FormField` `name` prop.
+
+<TOC
+  items={[
+    'Form',
+    'FormField',
+    'Basic Form',
+    'Changing Types',
+    'Required FormFields',
+    'Displaying Help Text',
+    'Displaying Errors',
+    'Validation',
+    'Add Tooltip',
+    'WIP (@TODO)'
+  ]}
+/>
+
+## Form
+
+The `Form` component requires an `onSubmit` prop with the function to handle the forms submission. `Form` components will always have `FormField` components as children, but they do not need to be direct children.
+
+```tsx
+<Form
+  className="mb-32"
+  onSubmit={(e, values, errors) => {
+    // Handle submit event
+    // values will contain an object with FormField names as keys
+    // errors will contain all the errors caught by form validation
+  }}
+>
+  // Form fields and submit Button here
+</Form>
+```
+
+## FormField
+
+FormField components require a `type`, `label`, and `name` props. If the `type` is "radio" then an `id` is also required, otherwise the `name` prop will also be used as the `id`. `FormFields` will always be children of `Form` components but do not need to be direct children.
+
+```tsx
+<FormField
+  className="mb-20"
+  label="Text Field"
+  name="form_field_text_sample"
+  placeholder="Placeholder Text"
+  type="text"
+/>
+
+<FormField
+  className="mb-20"
+  label="Text Field"
+  id="required_id_for_radio"
+  name="form_field_radio_sample"
+  placeholder="Placeholder Text"
+  type="radio"
+/>
+```
+
+## Basic Form
+
+Minimal example of a `Form` and `FormField`. Submitting without any value will `alert('no value entered')`, submitting with a value will `alert(<the value entered>)`:
+
+<Form
+  className="mb-32"
+  onSubmit={(e, values, errors) => {
+    e.preventDefault()
+    if (values[0].value) {
+      alert(`${values[0].name}: ${values[0].value}`)
+    } else {
+      alert(`ERROR: ${errors[0].label} ${errors[0].msg}`)
+    }
+  }}
+>
+  <FormField
+    className="mb-20"
+    label="Text Field"
+    name="basic_text_field"
+    placeholder="Placeholder Text"
+    required
+    type="text"
+  />
+  <Button primary type="submit">
+    Submit
+  </Button>
+</Form>
+
+```tsx
+<Form
+  className="mb-32"
+  onSubmit={(e, values, errors) => {
+    e.preventDefault()
+    if (values[0].value) {
+      alert(`${values[0].name}: ${values[0].value}`)
+    } else {
+      alert(`ERROR: ${errors[0].label} ${errors[0].msg}`)
+    }
+  }}
+>
+  <FormField
+    className="mb-20"
+    label="Text Field"
+    name="basic_text_field"
+    placeholder="Placeholder Text"
+    required
+    type="text"
+  />
+  <Button primary type="submit">
+    Submit
+  </Button>
+</Form>
+```
+
+## Changing Types
+
+The `type` prop supports: `checkbox`, `text`, `select`, `date`, `password`, `number`, `email`, and `tel`
+
+### Text, Password, Date, Number, Email, Tel
+
+<Form
+  className="mb-32"
+  onSubmit={() => {
+    return
+  }}
+>
+  <FormField
+    className="mb-20"
+    label="Text Field"
+    name="text_field"
+    placeholder="Text Field"
+    type="text"
+  />
+  <FormField
+    className="mb-20"
+    label="Password Field"
+    name="password_field"
+    placeholder="Password Field"
+    type="password"
+  />
+  <FormField
+    className="mb-20"
+    label="Date Field"
+    name="date_field"
+    placeholder="Date Field"
+    type="date"
+  />
+  <FormField
+    className="mb-20"
+    label="Number Field"
+    name="number_field"
+    placeholder="Number Field"
+    type="number"
+  />
+  <FormField
+    className="mb-20"
+    label="Email Field"
+    name="email_field"
+    placeholder="Email Field"
+    type="email"
+  />
+  <FormField
+    className="mb-20"
+    label="Tel Field"
+    name="tel_field"
+    placeholder="Tel Field"
+    type="tel"
+  />
+  <FormField
+    className="mb-20"
+    disabled
+    label="Disabled Text Field"
+    name="disabled_text_field"
+    placeholder="Disabled Text Field"
+    type="text"
+  />
+  <FormField
+    className="mb-20"
+    disabled
+    disabledAlt
+    label="Disabled Alt Text Field"
+    name="disabled_alt_text_field"
+    placeholder="Disabled Alt Text Field"
+    type="text"
+  />
+</Form>
+
+```tsx
+<FormField
+  className="mb-20"
+  label="Text Field"
+  name="text_field"
+  placeholder="Text Field"
+  type="text"
+/>
+<FormField
+  className="mb-20"
+  label="Password Field"
+  name="password_field"
+  placeholder="Password Field"
+  type="password"
+/>
+<FormField
+  className="mb-20"
+  label="Date Field"
+  name="date_field"
+  placeholder="Date Field"
+  type="date"
+/>
+<FormField
+  className="mb-20"
+  label="Number Field"
+  name="number_field"
+  placeholder="Number Field"
+  type="number"
+/>
+<FormField
+  className="mb-20"
+  label="Email Field"
+  name="email_field"
+  placeholder="Email Field"
+  type="email"
+/>
+<FormField
+  className="mb-20"
+  label="Tel Field"
+  name="tel_field"
+  placeholder="Tel Field"
+  type="tel"
+/>
+```
+
+### Select
+
+Select type requires `<option>` tags as children.
+
+<Form
+  className="mb-32"
+  onSubmit={() => {
+    return
+  }}
+>
+  <FormField
+    className="mb-20"
+    label="Select Field"
+    name="select_field"
+    type="select"
+  >
+    {options()}
+  </FormField>
+</Form>
+
+```tsx
+<FormField
+  className="mb-20"
+  label="Select Field"
+  name="select_field"
+  type="select"
+>
+  <option value="">--Select--</option>
+  <option value="dog">Dog</option>
+  <option value="cat">Cat</option>
+  <option value="hamster">Hamster</option>
+  <option value="parrot">Parrot</option>
+  <option value="spider">Spider</option>
+  <option value="goldfish">Goldfish</option>
+</FormField>
+```
+
+### Checkbox
+
+Checkbox type can optionally take a child to display as a subtitle to the label.
+
+<Form
+  className="mb-32"
+  onSubmit={e => {
+    return
+  }}
+>
+  <FormField
+    className="mb-20"
+    label="Checkbox Field"
+    name="checkbox_field"
+    type="checkbox"
+  />
+  <FormField
+    className="mb-20"
+    label="Checkbox Field"
+    name="checkbox_field_2"
+    type="checkbox"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quis
+    obcaecati sed officiis expedita corporis voluptas pariatur molestias. Eaque,
+    quibusdam dolorum earum non! Consequatur cumque, nihil voluptas commodi
+    iusto, explicabo!
+  </FormField>
+</Form>
+
+```tsx
+<FormField
+  className="mb-20"
+  label="Checkbox Field"
+  name="checkbox_field"
+  type="checkbox"
+/>
+<FormField
+  className="mb-20"
+  label="Checkbox Field"
+  name="checkbox_field_2"
+  type="checkbox"
+>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quis
+  obcaecati sed officiis expedita corporis voluptas pariatur molestias. Eaque,
+  quibusdam dolorum earum non! Consequatur cumque, nihil voluptas commodi iusto,
+  explicabo!
+</FormField>
+```
+
+### Radio
+
+Radio type requires an unique `id` for each radio in a group with the same name.
+
+<Form
+  className="mb-32"
+  onSubmit={e => {
+    return
+  }}
+>
+  <FormField
+    className="mb-20"
+    id="radio_sample_1"
+    label="Radio Field"
+    name="radio_field"
+    type="radio"
+    value="value 1"
+  />
+  <FormField
+    className="mb-20"
+    id="radio_sample_2"
+    label="Radio Field 2"
+    name="radio_field"
+    type="radio"
+    value="value 2"
+  />
+</Form>
+
+```tsx
+<FormField
+  className="mb-20"
+  id="radio_sample_1"
+  label="Radio Field"
+  name="radio_field"
+  type="radio"
+  value="value 1"
+/>
+<FormField
+  className="mb-20"
+  id="radio_sample_2"
+  label="Radio Field 2"
+  name="radio_field"
+  type="radio"
+  value="value 2"
+/>
+```
+
+### File (image)
+
+Image type requires a `label` and `text`.
+
+<Form
+  className="mb-32"
+  onSubmit={e => {
+    return
+  }}
+>
+  <FormField
+    className="mb-20"
+    label="Upload Image"
+    text="Choose an image from your files. For best results, use an image that is at least 500px wide."
+    name="image_upload"
+    type="image"
+  />
+</Form>
+
+```tsx
+<FormField
+  className="mb-20"
+  label="Upload Image"
+  text="Choose an image from your files. For best results, use an image that is at least 500px wide."
+  name="image_upload"
+  type="image"
+/>
+```
+
+## Required FormFields
+
+To mark as required add the `required` prop. For an abbreviated "Required" marker set `required="*"`. Required fields will be validated on change and on blur automatically.
+
+<Form
+  className="mb-32"
+  onSubmit={() => {
+    return
+  }}
+>
+  <FormField
+    className="mb-20"
+    label="Required Field"
+    name="required_field"
+    placeholder="This field is required"
+    required
+    type="text"
+  />
+  <FormField
+    label="Req Field"
+    name="req_field"
+    placeholder="This field is required"
+    required="*"
+    type="text"
+  />
+</Form>
+
+```tsx
+<Form
+  className="mb-32"
+  onSubmit={() => {
+    return
+  }}
+>
+  <FormField
+    label="Required Field"
+    name="required_field"
+    placeholder="This field is required"
+    required
+    type="text"
+  />
+  <FormField
+    label="Req Field"
+    name="req_field"
+    placeholder="This field is required"
+    required="*"
+    type="text"
+  />
+</Form>
+```
+
+## Displaying Help Text
+
+Help text can be displayed either as part of a `FormField` through the `helpText` prop or as a standalone component using the `HelpText` component.
+
+<Form
+  className="mb-32"
+  onSubmit={() => {
+    return
+  }}
+>
+  <FormField
+    helpText="help text added through a prop"
+    label="Field with help text"
+    name="help_field"
+    placeholder="See help text below"
+    type="text"
+  />
+  <HelpText>
+    <strong>Help Text:</strong> added through the HelpText component.
+  </HelpText>
+</Form>
+
+```tsx
+<FormField
+  helpText="help text added through a prop"
+  label="Field with help text"
+  name="help_field"
+  placeholder="See help text below"
+  type="text"
+/>
+<HelpText><strong>Help Text:</strong> added through the HelpText component.</HelpText>
+```
+
+## Displaying Errors
+
+To add error styles add the `error` prop. Error text can be displayed as part of a `FormField` through the `errorText` prop or as a standalone component using the `ErrorText` component.
+
+<Form
+  className="mb-32"
+  onSubmit={() => {
+    return
+  }}
+>
+  <FormField
+    error
+    errorText="error text added through a prop"
+    label="Field with error text"
+    name="error_field"
+    placeholder="See error text below"
+    type="text"
+  />
+  <ErrorText>
+    <strong>Error Text:</strong> added through the ErrorText component.
+  </ErrorText>
+</Form>
+
+```tsx
+<FormField
+  error
+  errorText="error text added through a prop"
+  label="Field with error text"
+  name="error_field"
+  placeholder="See error text below"
+  type="text"
+/>
+<ErrorText><strong>Error Text:</strong> added through the ErrorText component.</ErrorText>
+```
+
+## Validation
+
+`FormField` components with a `required` prop will be validated for the presence of a value (checkboxes will be checked for a `true` value.)
+
+All errors will be passed to the `Form` component's `onSubmit` handler:
+
+```tsx
+<Form
+  onSubmit={(event, values, errors) => {
+    // handle errors here
+  }}
+>
+  // Form content here
+</Form>
+```
+
+`errors` is an array of form error objects:
+
+```tsx
+[
+  {
+    name: 'FormField name',
+    label: 'FormField label',
+    msg: 'is required'
+  }
+]
+```
+
+## Add Tooltip
+
+To add an information tooltip pass a `ReactChild` (in this example a React Fragment is passed) to the `tooltip` prop.
+
+> Tooltips are not available for `FormField` components of type `radio`.
+
+<Form
+  className="mb-32"
+  onSubmit={e => {
+    e.preventDefault()
+  }}
+>
+  <FormField
+    className="mb-20"
+    label="Tooltip FormField"
+    name="tooltip_text_field"
+    placeholder="Placeholder Text"
+    tooltip={
+      <>
+        If you have any questions <a href="#">contact us</a>
+      </>
+    }
+    type="text"
+  />
+</Form>
+
+```tsx
+<FormField
+  className="mb-20"
+  label="Tooltip FormField"
+  name="tooltip_text_field"
+  placeholder="Placeholder Text"
+  tooltip={
+    <>
+      If you have any questions <a href="#">contact us</a>
+    </>
+  }
+  type="text"
+/>
+```
+
+## WIP (@TODO)
+
+- Full implementation of this component is not done
+- Add validation beyond simple `required` validation
+- Radio inputs group (w/ group validation)

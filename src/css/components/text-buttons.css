@@ -1,0 +1,82 @@
+.txt-btn,
+.txt-btn-light {
+  @apply font-bold;
+  @apply leading-normal;
+  @apply no-underline;
+
+  &:hover,
+  &:focus {
+    @apply bg-left-bottom;
+    @apply bg-repeat-x;
+    background-size: 1px 1px;
+  }
+
+  &[disabled] {
+    @apply cursor-not-allowed;
+  }
+}
+
+.txt-btn {
+  @apply text-bright-blue-600;
+
+  &:hover,
+  &:focus {
+    background-image: linear-gradient(
+      to right,
+      config(textColors.bright-blue-600) 100%,
+      transparent 100%
+    );
+  }
+
+  &:active {
+    @apply text-dark-blue-300;
+    background-image: linear-gradient(
+      to right,
+      config(textColors.dark-blue-300) 100%,
+      transparent 100%
+    );
+  }
+
+  &[disabled] {
+    @apply text-bright-blue-400;
+    background: none;
+  }
+}
+
+.txt-btn-light {
+  @apply text-white;
+
+  &:hover,
+  &:focus {
+    background-image: linear-gradient(
+      to right,
+      config(textColors.white) 100%,
+      transparent 100%
+    );
+  }
+
+  &:active {
+    @apply text-gray-300;
+    background-image: linear-gradient(
+      to right,
+      config(textColors.gray-300) 100%,
+      transparent 100%
+    );
+  }
+
+  &[disabled] {
+    @apply text-gray-400;
+    background: none;
+  }
+}
+
+.txt-btn-icon {
+  &:hover,
+  &:focus {
+    background: none;
+  }
+
+  &[disabled] {
+    @apply text-gray-300;
+  }
+}

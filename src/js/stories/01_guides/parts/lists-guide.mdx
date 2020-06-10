@@ -1,0 +1,54 @@
+import { Do, Dont, DosDonts } from '../utils/doc-parts'
+
+## Overview
+
+Lists consist of related content that’s grouped together and presented vertically.
+
+___
+
+## Usage
+
+### Types
+
+#### Unordered lists
+Use to present content of equal status or value.
+
+<ul className="list mb-32">
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ul>
+
+#### Ordered lists
+Use to present content with an implied sequence and order.
+
+<ol className="list mb-32">
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ol>
+
+___
+
+## Best Practices
+
+### General
+
+<DosDonts>
+  <Do>use lists to present simple pieces of information</Do>
+  <Dont>use lists to present complex information or lengthy content</Dont>
+  <Dont>overuse lists, as they can lose their effectiveness</Dont>
+  <Dont>use lists to present sets of unrelated data</Dont>
+  <Dont>create groupings of list items</Dont>
+  <Dont>use ordered lists when the sequence or count of items is not important</Dont>
+</DosDonts>
+
+### Content
+
+<DosDonts>
+  <Do>arrange list items in a logical way</Do>
+  <Do>use the same format for all items in a list</Do>
+  <Do>use list items that have approximately similiar lengths</Do>
+  <Dont>repeat the same word at the beginning of each list item</Dont>
+  <Dont>include more than X items in a single list</Dont>
+</DosDonts>

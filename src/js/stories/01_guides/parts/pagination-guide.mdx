@@ -1,0 +1,56 @@
+import { Pagination, PaginationItem } from '../../index'
+import { Do, Dont, DosDonts } from '../utils/doc-parts'
+
+## Overview
+
+Pagination is used to display a set of data across multiple pages rather than in a single view. It is generally used if there are more than 10 items in a set of data but that number may vary depending on the context.
+
+---
+
+## Usage
+
+The pagination component should be displayed underneath the set of data and should be centered on the page.
+
+<div className="flex justify-center mb-40">
+  <Pagination onSelect={({ index, url }) => { alert(index, url) }} currentItem={0}>
+    <PaginationItem url="#1">1</PaginationItem>
+    <PaginationItem url="#2">2</PaginationItem>
+    <PaginationItem url="#3">3</PaginationItem>
+    <PaginationItem url="#4">4</PaginationItem>
+    <PaginationItem url="#5">5</PaginationItem>
+  </Pagination>
+</div>
+
+When there are more than 8 pages of results, 7 should be replaced by an ellipsis and 8 should be replaced by the number of the final page of results.
+
+<div className="flex justify-center mb-40">
+  <Pagination onSelect={({ index, url }) => { alert(index, url) }} currentItem={0}>
+    <PaginationItem url="#1">1</PaginationItem>
+    <PaginationItem url="#2">2</PaginationItem>
+    <PaginationItem url="#3">3</PaginationItem>
+    <PaginationItem url="#4">4</PaginationItem>
+    <PaginationItem url="#5">5</PaginationItem>
+    <PaginationItem url="#6">6</PaginationItem>
+    <PaginationItem ellipsis>...</PaginationItem>
+    <PaginationItem url="#9">9</PaginationItem>
+  </Pagination>
+</div>
+
+---
+
+## Best Practices
+
+### General
+
+<DosDonts>
+  <Dont>use pagination when displaying fewer than 10 items</Dont>
+  <Do>identify the current page</Do>
+  <Do>provide context for the total number of pages</Do>
+  <Do>provide previous and next options</Do>
+  <Do>
+    disable actions that the user can’t take (such as selecting the current page
+    or selecting previous when the user is currently on the first page in the
+    results set)
+  </Do>
+  <Dont>replace pagination with an infinite scroll pattern</Dont>
+</DosDonts>

@@ -1,0 +1,186 @@
+import { Checkbox } from '../index'
+import TOC from '../_toc'
+
+# Checkbox
+
+Checkbox components require `id`, `label`, and `name` props. Checkbox components should be used as uncontrolled form components. For fully controlled forms see the `Form` and `FormField` components.
+
+<TOC
+  items={[
+    'Basic Checkbox',
+    'Add Subtext',
+    'Required Checkbox',
+    'Disabled Checkbox',
+    'Displaying Help Text',
+    'Displaying errors'
+  ]}
+/>
+
+## Basic Checkbox
+
+The Checkbox component doesn't provide any spacing, spacing should be added with tailwind classes (`mb-20` in this example.)
+
+<Checkbox className="mb-20" id="checkbox" label="Checkbox" name="checkbox" />
+
+```tsx
+<Checkbox className="mb-20" id="checkbox" label="Checkbox" name="checkbox" />
+```
+
+## Add Subtext
+
+Any text added as a child to the Checkbox component will be displayed as subtext.
+
+<Checkbox
+  className="mb-20"
+  id="checkbox_subtext"
+  label="Checkbox With Subtext"
+  name="checkbox_subtext"
+>
+  Address community needs and produce sustainable, measureable outcomes.
+</Checkbox>
+
+```tsx
+<Checkbox
+  className="mb-20"
+  id="checkbox_subtext"
+  label="Checkbox With Subtext"
+  name="checkbox_subtext"
+>
+  Address community needs and produce sustainable, measureable outcomes.
+</Checkbox>
+```
+
+## Required Checkbox
+
+To mark as required add the `required` prop. For an abbreviated "Required" marker set `required="*"`
+
+<Checkbox
+  className="mb-20"
+  id="required_checkbox"
+  label="Required Checkbox"
+  name="required_checkbox"
+  required
+/>
+
+<Checkbox
+  className="mb-20"
+  id="req_checkbox"
+  label="Req Checkbox"
+  name="req_checkbox"
+  required="*"
+/>
+
+```tsx
+<Checkbox
+  className="mb-20"
+  id="required_checkbox"
+  label="Required Checkbox"
+  name="required_checkbox"
+  required
+/>
+
+<Checkbox
+  className="mb-20"
+  id="req_checkbox"
+  label="Req Checkbox"
+  name="req_checkbox"
+  required="*"
+/>
+```
+
+## Disabled Checkbox
+
+To disable an Checkbox add the `disabled` prop.
+
+<Checkbox
+  className="mb-20"
+  disabled
+  id="checkbox_disabled"
+  label="Disabled Checkbox"
+  name="checkbox_disabled"
+/>
+
+```tsx
+<Checkbox
+  className="mb-20"
+  disabled
+  id="checkbox_disabled"
+  label="Disabled Checkbox"
+  name="checkbox_disabled"
+/>
+```
+
+## Displaying Help Text
+
+To add help text below the Checkbox set the `helpText` prop to a string.
+
+<Checkbox
+  className="mb-20"
+  helpText="This Checkbox has help text"
+  id="help_checkbox"
+  label="Checkbox"
+  name="help_checkbox"
+/>
+
+```tsx
+<Checkbox
+  className="mb-20"
+  helpText="This Checkbox has help text"
+  id="checkbox_help"
+  label="Checkbox"
+  name="checkbox_help"
+/>
+```
+
+## Displaying errors
+
+To add error styles add the `error` prop. To add an error message below the Checkbox set the `errorText` prop to a string.
+
+<Checkbox
+  className="mb-20"
+  error
+  errorText="This Checkbox has error text"
+  id="checkbox_error"
+  label="Error Checkbox"
+  name="checkbox_error"
+/>
+
+```tsx
+<Checkbox
+  className="mb-20"
+  error
+  errorText="This Checkbox has error text"
+  id="checkbox_error"
+  label="Error Checkbox"
+  name="checkbox_error"
+/>
+```
+
+## Add Tooltip
+
+To add an information tooltip pass a `ReactChild` (in this example a React Fragment is passed) to the `tooltip` prop.
+
+<Checkbox
+  className="mb-20"
+  id="tooltip_checkbox"
+  label="Tooltip Checkbox"
+  name="tooltip_checkbox"
+  tooltip={
+    <>
+      If you have any questions <a href="#">contact us</a>
+    </>
+  }
+/>
+
+```tsx
+<Checkbox
+  id="tooltip_checkbox"
+  label="Tooltip Checkbox"
+  name="tooltip_checkbox"
+  tooltip={
+    <>
+      If you have any questions <a href="#">contact us</a>
+    </>
+  }
+/>
+```

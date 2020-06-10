@@ -1,0 +1,132 @@
+import { Radio } from '../index'
+import TOC from '../_toc'
+
+# Radio
+
+Radio components require `id`, `label`, and `name` props. Radio components should be used as uncontrolled form components. For fully controlled forms see the `Form` and `FormField` components.
+
+<TOC
+  items={[
+    'Basic Radio',
+    'Required Radio',
+    'Disabled Radio',
+    'Displaying Help Text',
+    'Displaying errors',
+  ]}
+/>
+
+## Basic Radio
+
+The Radio component doesn't provide any spacing, spacing should be added with tailwind classes (`mb-20` in this example.)
+
+<Radio className="mb-20" id="radio" label="Radio" name="radio_group" />
+
+```tsx
+<Radio className="mb-20" id="radio" label="Radio" name="radio_group" />
+```
+
+## Required Radio
+
+To mark as required add the `required` prop. For an abbreviated "Required" marker set `required="*"`
+
+<Radio
+  className="mb-20"
+  id="radio_required"
+  label="Radio Required"
+  name="radio_group"
+  required
+/>
+
+<Radio
+  className="mb-20"
+  id="radio_req"
+  label="Radio Req"
+  name="radio_group"
+  required="*"
+/>
+
+```tsx
+<Radio
+  className="mb-20"
+  id="radio_required"
+  label="Radio Required"
+  name="radio_group"
+  required
+/>
+
+<Radio
+  className="mb-20"
+  id="radio_req"
+  label="Radio Req"
+  name="radio_group"
+  required="*"
+/>
+```
+
+## Disabled Radio
+
+To disable a Radio add the `disabled` prop.
+
+<Radio
+  className="mb-20"
+  disabled
+  id="radio_disabled"
+  label="Disabled Radio"
+  name="radio_group"
+/>
+
+```tsx
+<Radio
+  className="mb-20"
+  disabled
+  id="radio_disabled"
+  label="Disabled Radio"
+  name="radio_group"
+/>
+```
+
+## Displaying Help Text
+
+To add help text below the Radio set the `helpText` prop to a string.
+
+<Radio
+  className="mb-20"
+  id="radio_help"
+  label="Radio"
+  name="radio_group"
+  helpText="This radio has help text"
+/>
+
+```tsx
+<Radio
+  className="mb-20"
+  id="radio_help"
+  label="Radio"
+  name="radio_group"
+  helpText="This radio has help text"
+/>
+```
+
+## Displaying errors
+
+To add error styles add the `error` prop. To add an error message below the Radio set the `errorText` prop to a string.
+
+<Radio
+  className="mb-20"
+  error
+  errorText="This Radio has error text"
+  id="radio_error"
+  label="Radio Error"
+  name="radio_group"
+/>
+
+```tsx
+<Radio
+  className="mb-20"
+  error
+  errorText="This Radio has error text"
+  id="radio_error"
+  label="Radio Error"
+  name="radio_group"
+/>
+```

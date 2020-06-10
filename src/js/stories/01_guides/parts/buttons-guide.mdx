@@ -1,0 +1,129 @@
+import { Button } from '../../index'
+import { Do, Dont, DosDonts } from '../utils/doc-parts'
+import TrashcanIcon from '../../../../img/icons/ui/trashcan.svg'
+
+## Overview
+
+Buttons are clickable items used to perform an action. They should be used in situations where users might need to:
+
+- Submit a form
+- Begin a new task
+- Trigger a new UI element to appear on the page
+- Specificy a new or next step in a process
+
+___
+
+## Usage
+
+### Types:
+
+#### Primary Button
+
+<Button primary className="mb-20">Primary Button</Button>
+
+High emphasis. Use for the primary call to action on the page. Primary buttons should only be used once on the page and not all screens require a primary button.
+
+#### Secondary Button
+
+<Button secondary className="mb-20">Secondary Button</Button>
+
+Medium emphasis. Use for secondary calls to action on the page. Secondary buttons can be used multiple times on the page.
+
+#### Destructive Button
+
+<Button destructive className="mb-20">Destructive Button</Button>
+
+Use when an action has a harmful impact on the user’s data.
+
+#### Text Button
+
+<Button text className="mb-20">Text Button</Button>
+
+Low emphasis. Use for less important actions or when taking an action is secondary to the page content. Text buttons can be used multiple times on a page.
+
+#### Icon Button
+
+<Button
+  className="mb-32 text-bright-blue-500 hover:text-bright-blue-300"
+  icon={<TrashcanIcon />}
+  plain
+/>
+
+Use when space is limited and the action can clearly be communicated through an icon.
+
+#### Button with Icon
+
+<Button icon={<TrashcanIcon />} secondary className="mb-20">
+  Delete
+</Button>
+
+Icons can be used in buttons to help communicate what the button does.
+
+___
+
+### Sizes:
+
+#### Tiny
+
+<Button tiny primary className="mb-20">Tiny Button</Button>
+
+TBD
+
+#### Small
+
+<Button small primary className="mb-20">Small Button</Button>
+
+Use when space is limited and there is not enough vertical space for a regular sized button.
+
+#### Large
+
+<Button large primary className="mb-20">Large Button</Button>
+
+TBD
+
+### States:
+
+#### Disabled
+
+<Button disabled primary className="mb-20">Disabled Button</Button>
+
+Use when the user cannot proceed until an input is collected.
+
+> The disabled state can apply to primary, secondary, destructive, and text Buttons
+___
+
+## Best Practices
+
+### General
+
+<DosDonts>
+  <Do>use buttons for actions</Do>
+  <Do>use buttons to prioritize the most important actions</Do>
+  <Do>use consistent locations in the interface to surface buttons</Do>
+  <Do>use mutliple button types to express different levels of emphasis</Do>
+  <Dont>use for navigation</Dont>
+</DosDonts>
+
+### Labels
+
+<DosDonts>
+  <Do>use clear and accurate labels</Do>
+  <Do>use actionable verbs</Do>
+  <Do>use the verb + noun format when additional context is helpful</Do>
+  <Do>use capitalized text (except for languages with localized capitalization rules)</Do>
+  <Dont>use unnecessary words and articles such as the, an, or a</Dont>
+</DosDonts>
+
+### Icons
+
+<DosDonts>
+  <Do>use icons to clarify and call attention to the action</Do>
+</DosDonts>
+
+### Button Sets
+
+<DosDonts>
+  <Do>use sets of buttons when actions have a relationship</Do>
+  <Do>use primary button for the positive action and secondary button for the negative action. Primary button should be displayed on the left and secondary button should be displayed on the right</Do>
+  <Dont>place a button below another button if there is space to place them side by side</Dont>
+</DosDonts>

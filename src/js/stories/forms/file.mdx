@@ -1,0 +1,28 @@
+import { ImageInput } from '../index'
+import TOC from '../_toc'
+
+# File Inputs
+
+<TOC items={['Image File Input']} />
+
+## Image File Input
+
+`ImageInput` components require `id`, `label`, `text` and `name` props. `ImageInput` components should be used as uncontrolled form components. For fully controlled forms see the `Form` and `FormField` components. The `ImageInput` component will preview an image once one is selected.
+
+<ImageInput
+  className="mb-20"
+  id="imageInput"
+  name="imageInput"
+  label="Upload Image"
+  text="Choose an image from your files. For best results, use an image that is at least 500px wide."
+/>
+
+```tsx
+<ImageInput
+  className="mb-20"
+  id="imageInput"
+  name="imageInput"
+  label="Upload Image"
+  text="Choose an image from your files. For best results, use an image that is at least 500px wide."
+/>
+```
